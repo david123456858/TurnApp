@@ -1,0 +1,19 @@
+{
+  "name": "backporruo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "",
+    "dev": "ts-node-dev --respawn --ignore-watch node_modules app.ts",
+    "tsc": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "typescript": "^5.5.4"
+  }
+}
