@@ -10,10 +10,9 @@ app.use(morgan('dev'))
 
 app.disable('x-powered-by')
 
-app.get('/',(res:Response,req:Request)=>{
-    res.json({data:"Señores volvi a tener sed"})
+app.get('/',(req:Request,res:Response)=>{
+    res.send("Bienvenido a la cosota que voy a realizar")
 })
-
 app.listen(port,()=>{
-    console.log(`Escuchando es este puerto señores http://localhost${port}`)
+    console.log(`Escuchando es este puerto señores http://localhost:${port}`)
 })
