@@ -1,12 +1,18 @@
 import express,{ Response,Request } from "express";
 import morgan from "morgan";
 
+import { connection } from './infrastructur/persitense/connectionDb'
 const app = express()
 
 const port = 3001
 
 app.use(express.json())
 app.use(morgan('dev'))
+
+connection()
+.then(()=>{
+    console.log('se conecto a la base de datos');
+})
 
 app.disable('x-powered-by')
 
