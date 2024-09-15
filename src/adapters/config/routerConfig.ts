@@ -1,4 +1,4 @@
-import { Router } from "express"
+import { Router } from 'express'
 
 export const baseRoute = 'ap1/v1'
 
