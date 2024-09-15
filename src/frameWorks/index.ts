@@ -1,34 +1,40 @@
-import express, { Response, Request } from "express";
-import morgan from "morgan";
+import express, { Response, Request } from 'express'
+import morgan from 'morgan'
+import cors from 'cors'
 
-import { dbBase } from "./db/db";
+import { dbBase } from './db/db'
 
-const app = express();
+const app = express()
 
-const port = 3001;
+const port = 3001
 
-app.use(express.json());
+app.use(
+  cors({
+    origin: '*'
+  })
+)
+app.use(express.json())
 
-app.use(morgan("dev"));
+app.use(morgan('dev'))
 
-async function starDb() {
-  const DB = dbBase.instance;
+async function starDb (): Promise<void> {
+  const DB = dbBase.instance
   const dbIntanse = await DB.connectDb()
-  if (!dbIntanse) {
-    return console.log("No se pudo contectar");
+  if (dbIntanse == null) {
+    return console.log('No se pudo contectar')
   }
-  if (dbIntanse) {
-   console.log("Se pudo conectar");
+  if (dbIntanse !== null) {
+    console.log('Se pudo conectar')
   }
 }
 
 starDb()
 
-app.disable("x-powered-by");
+app.disable('x-powered-by')
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Bienvenido a la cosota que voy a realizar");
-});
+app.get('/', (req: Request, res: Response) => {
+  res.send('Bienvenido a la cosota que voy a realizar')
+})
 app.listen(port, () => {
-  console.log(`Escuchando es este puerto señores http://localhost:${port}`);
-});
+  console.log(`Escuchando es este puerto señores http://localhost:${port}`)
+})
