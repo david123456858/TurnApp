@@ -10,7 +10,7 @@ const port = 3001
 
 app.use(
   cors({
-    origin: '*'
+    origin: '*', credentials: true
   })
 )
 app.use(express.json())
