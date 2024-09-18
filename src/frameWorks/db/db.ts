@@ -1,29 +1,15 @@
-import { MongoClient, ServerApiVersion } from 'mongodb'
+import { connect, Mongoose } from 'mongoose'
 import { URI } from '../../adapters/config/dbConfig'
 
 export class dbBase {
   private static _intanceDb: dbBase
-  appDb!: MongoClient
 
-  constructor () {
-    this.appDb = new MongoClient(URI, {
-      serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true
-      }
-    })
-  }
-
-  public async connectDb (): Promise<void | MongoClient> {
+  public async connectDb (): Promise<void | Mongoose> {
     try {
-      await this.appDb.connect()
-      await this.appDb.db('TurnApp').command({ ping: 1 })
-      return this.appDb
+      const client = await connect(URI)
+      return client
     } catch (error) {
       console.log('error db: ', error)
-    } finally {
-      await this.appDb.close()
     }
   }
 
@@ -34,11 +20,3 @@ export class dbBase {
     return this._intanceDb
   }
 }
-
-export const client = new MongoClient(URI, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true
-  }
-})
