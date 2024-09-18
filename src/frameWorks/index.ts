@@ -20,7 +20,7 @@ app.use(morgan('dev'))
 async function starDb (): Promise<void> {
   const DB = dbBase.instance
   const dbIntanse = await DB.connectDb()
-  if (dbIntanse == null) {
+  if (dbIntanse === null) {
     return console.log('No se pudo contectar')
   }
   if (dbIntanse !== null) {
