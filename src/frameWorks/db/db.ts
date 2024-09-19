@@ -6,7 +6,7 @@ export class dbBase {
 
   public async connectDb (): Promise<void | Mongoose> {
     try {
-      const client = await connect(URI)
+      const client = await connect(URI, { autoIndex: false })
       return client
     } catch (error) {
       console.log('error db: ', error)
