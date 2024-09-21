@@ -4,7 +4,7 @@ import { User } from '../../domain/users/users'
 import { registerDto } from '../../Dtos/auth/registerDtos'
 import { repositoryUser } from '../../repository/user/repository.user'
 
-export class caseUserLoggin {
+export class caseUseRegister {
   private readonly repository: repositoryUser
   constructor (UserRepository: repositoryUser) {
     this.repository = UserRepository
