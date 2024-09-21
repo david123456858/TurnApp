@@ -5,6 +5,6 @@ export interface IFailureProcess<T> {
 }
 export interface ISuccessProcess<T> {
   value: T
-  success: false
+  success: true
   status: number
 }

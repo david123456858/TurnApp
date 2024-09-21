@@ -4,7 +4,7 @@ const saitSchema = new Schema({
   nameSait: { type: String, required: true },
   city: { type: String },
   address: { type: String },
-  numberEmployesForDay: { type: Number, requird: true }
+  numberEmployesForDay: { type: Number, required: true }
 
 })
 
