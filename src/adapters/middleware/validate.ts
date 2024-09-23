@@ -10,7 +10,7 @@ export const validateDtos = (classDto: any) => {
     const errorValidateClass = await validate(classInstanceBody)
 
     if (errorValidateClass.length > 0) {
-      res.status(400).json({ error: 'bad request' })
+      res.status(422).json({ error: 'Inprocessible entity' })
       return
     }
     console.log(classDto.nit)

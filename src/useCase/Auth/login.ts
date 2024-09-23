@@ -12,6 +12,10 @@ export class caseUserLoggin {
 
   async loggin (userLoggin: logginDto): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
     try {
+      const userLogged = this.repostitory.findByEmail(userLoggin.email)
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises, @typescript-eslint/strict-boolean-expressions
+      if (!userLogged) return FailureProccess('Not found', 404)
+
       return SuccessProcess('user loged in the system', 200)
     } catch (error) {
       return FailureProccess('error internal server', 500)
