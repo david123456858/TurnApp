@@ -3,6 +3,7 @@ import { FailureProccess, SuccessProcess } from '../../adapters/utils/result/res
 import { User } from '../../domain/users/users'
 import { registerDto } from '../../Dtos/auth/registerDtos'
 import { repositoryUser } from '../../repository/user/repository.user'
+import { genSaltSync, hashSync } from 'bcrypt-ts'
 
 export class caseUseRegister {
   private readonly repository: repositoryUser
@@ -17,12 +18,17 @@ export class caseUseRegister {
       if (userSearchOne !== null) {
         return FailureProccess('El usuario ya se encuentra registrado', 409)
       }
+      const salt = genSaltSync(10)
+      const hash = hashSync(user.password, salt)
+
       const userSave = new User()
+
       userSave.nit = user.nit
       userSave.email = user.email
       userSave.nameCompany = user.nameCompany
       userSave.numberPhone = user.numberPhone
-      userSave.password = user.password
+      userSave.password = hash
+
       console.log(userSave)
       await this.repository.save(userSave)
       return SuccessProcess('created user', 200)
