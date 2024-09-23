@@ -23,10 +23,11 @@ export class caseUseRegister {
       userSave.nameCompany = user.nameCompany
       userSave.numberPhone = user.numberPhone
       userSave.password = user.password
-
+      console.log(userSave)
       await this.repository.save(userSave)
       return SuccessProcess('created user', 200)
     } catch (error) {
+      console.log(error)
       return FailureProccess('Algo sucedio con esto', 500)
     }
   }

@@ -3,6 +3,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 
 import { dbBase } from './db/db'
+import { routerAuth } from '../adapters/router/Auth/auth'
 
 const app = express()
 
@@ -28,7 +29,9 @@ async function starDb (): Promise<void> {
   }
 }
 
-starDb()
+void starDb()
+
+app.use(routerAuth())
 
 app.disable('x-powered-by')
 

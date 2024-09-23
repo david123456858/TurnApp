@@ -13,8 +13,8 @@ export const validateDtos = (classDto: any) => {
       res.status(400).json({ error: 'bad request' })
       return
     }
-
-    req.body = classDto
+    console.log(classDto.nit)
+    req.body = classInstanceBody
     next()
   }
 }

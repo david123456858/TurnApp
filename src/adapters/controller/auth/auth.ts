@@ -7,7 +7,9 @@ export class AuthController {
 
   constructor (caseUse: caseUseRegister) {
     this.caseUseRegister = caseUse
+
     this.register = this.register.bind(this)
+    this.loggin = this.loggin.bind(this)
   }
 
   async register (req: Request, res: Response, next: NextFunction): Promise<void> {
@@ -15,6 +17,10 @@ export class AuthController {
 
     const registerCreated = await this.caseUseRegister.register(userReq)
 
-    res.status(registerCreated.status).json({ data: registerCreated.success })
+    res.status(registerCreated.status).json({ data: registerCreated })
+  }
+
+  async loggin (req: Request, res: Response, next: NextFunction): Promise<void> {
+
   }
 }
