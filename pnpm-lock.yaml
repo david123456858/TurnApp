@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      class-transformer:
+        specifier: ^0.5.1
+        version: 0.5.1
       class-validator:
         specifier: ^0.14.1
         version: 0.14.1
@@ -29,6 +32,9 @@ importers:
       morgan:
         specifier: 1.10.0
         version: 1.10.0
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
       ts-standard:
         specifier: ^12.0.2
         version: 12.0.2(typescript@5.5.4)
@@ -340,6 +346,9 @@ packages:
   chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
+
+  class-transformer@0.5.1:
+    resolution: {integrity: sha512-SQa1Ws6hUbfC98vKGxZH3KFY0Y1lm5Zm0SY8XX9zbK7FJCyVEac3ATW0RIpwzW+oOfmHE5PMPufDG9hCfoEOMw==}
 
   class-validator@0.14.1:
     resolution: {integrity: sha512-2VEG9JICxIqTpoK1eMzZqaV+u/EiwEJkMGzTrZf6sU/fwsnOITVgYJ8yojSy6CaXtO9V0Cc6ZQZ8h8m4UBuLwQ==}
@@ -1282,6 +1291,9 @@ packages:
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
+  reflect-metadata@0.2.2:
+    resolution: {integrity: sha512-urBwgfrvVP/eAyXx4hluJivBKzuEbSQs9rKWCrCkbSxNv8mxPcUZKeuoF3Uy4mJl3Lwprp6yy5/39VWigZ4K6Q==}
+
   reflect.getprototypeof@1.0.6:
     resolution: {integrity: sha512-fmfw4XgoDke3kdI6h4xcUz1dG8uaiv5q9gcEwLS4Pnth2kxT+GZ7YehS1JTMGBQmtV7Y4GFGbs2re2NqhdozUg==}
     engines: {node: '>= 0.4'}
@@ -1961,6 +1973,8 @@ snapshots:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
+
+  class-transformer@0.5.1: {}
 
   class-validator@0.14.1:
     dependencies:
@@ -3021,6 +3035,8 @@ snapshots:
       unpipe: 1.0.0
 
   react-is@16.13.1: {}
+
+  reflect-metadata@0.2.2: {}
 
   reflect.getprototypeof@1.0.6:
     dependencies:

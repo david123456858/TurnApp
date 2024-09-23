@@ -3,6 +3,8 @@ import { baseRoute, router } from '../../config/routerConfig'
 import { AuthController } from '../../controller/auth/auth'
 import { caseUseRegister } from '../../../useCase/Auth/register'
 import { repositoryUser } from '../../../repository/user/repository.user'
+import { validateDtos } from '../../middleware/validate'
+import { registerDto } from '../../../Dtos/auth/registerDtos'
 
 export const routerAuth = (): Router => {
   const repostitory = new repositoryUser()
@@ -11,7 +13,9 @@ export const routerAuth = (): Router => {
   const controllerIntance = new AuthController(caseUseAuthIntance)
 
   router.post(`${baseRoute}/loggin`)
-  router.post(`${baseRoute}/register`, controllerIntance.register)
+  router.post(`${baseRoute}/register`,
+    validateDtos(registerDto),
+    controllerIntance.register) // se tiene un middleware para validar lo que viene
 
   return router
 }
