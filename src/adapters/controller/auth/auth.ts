@@ -7,6 +7,7 @@ export class AuthController {
 
   constructor (caseUse: caseUseRegister) {
     this.caseUseRegister = caseUse
+    this.register = this.register.bind(this)
   }
 
   async register (req: Request, res: Response, next: NextFunction): Promise<void> {
