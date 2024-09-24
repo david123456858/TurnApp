@@ -20,7 +20,7 @@ export class caseUserLoggin {
       const comparePassword = bcryptjs.compareSync(userLoggin.password, userLogged.password)
       // eslint-disable-next-line @typescript-eslint/no-misused-promises, @typescript-eslint/strict-boolean-expressions
       if (!comparePassword) return FailureProccess('User Not found', 404)
-      return SuccessProcess('user loged in the system', 200)
+      return SuccessProcess(userLogged, 200)
     } catch (error) {
       return FailureProccess('error internal server', 500)
     }
