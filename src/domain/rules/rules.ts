@@ -1,5 +1,5 @@
 export class rules {
-  idRule!: string
+  // idRule!: string utilizaremos las id de los documentos de mongo
   nameRule!: string
   numberTotal!: string
   description!: string

@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose'
 
 const ruleSchema = new Schema({
-  idRule: { type: String, unique: true },
+  // idRule: { type: String, unique: true },
   nameRule: { type: String, required: true },
   numberTotal: { type: Number, required: true },
   description: { type: String },
