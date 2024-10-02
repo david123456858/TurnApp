@@ -9,7 +9,7 @@ export class repositoryRules implements IcrudRepository<rules> {
   }
 
   async update (data: rules): Promise<any> {
-    const ruleUpdated = await ruleModel.findOneAndUpdate({ idRule: data.idRule }, { $set: data }, { new: true })
+    const ruleUpdated = await ruleModel.findOneAndUpdate({ nameRule: data.nameRule }, { $set: data }, { new: true })
     return ruleUpdated
   }
 
@@ -26,5 +26,10 @@ export class repositoryRules implements IcrudRepository<rules> {
   async findAll (): Promise<any> {
     const rulesFinds = ruleModel.find()
     return await rulesFinds
+  }
+
+  async findByNameRule (data: string): Promise<any> {
+    const ruleFind = await ruleModel.findOne({ nameRule: data })
+    return ruleFind
   }
 }
