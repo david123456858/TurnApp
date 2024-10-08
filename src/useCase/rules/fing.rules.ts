@@ -11,7 +11,8 @@ export class caseUseCreated {
   async findRule (): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
     try {
       // logica crear role
-      return SuccessProcess('rule created', 201)
+      const findRules = await this.repositoryRules.findAll()
+      return SuccessProcess(findRules, 201)
     } catch (error) {
       return FailureProccess('error internal server', 500)
     }
