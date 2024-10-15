@@ -1,4 +1,5 @@
 import { IFailureProcess, ISuccessProcess } from './../../interface/results/restults'
+
 export const FailureProccess = <T>(
   error: T,
   status: number

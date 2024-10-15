@@ -4,6 +4,7 @@ import { URI } from '../../adapters/config/dbConfig'
 export class dbBase {
   private static _intanceDb: dbBase
 
+  // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
   public async connectDb (): Promise<void | Mongoose> {
     try {
       const client = await connect(URI, { autoIndex: false })
