@@ -1,14 +1,17 @@
 import { NextFunction, Request, Response } from 'express'
 import { CaseUseDeleteUser } from '../../../useCase/users/user.delete'
 import { CaseUseUpdateUser } from '../../../useCase/users/user.update'
+import { CaseUseFindUsers } from '../../../useCase/users/user.find'
 
 export class controllerUserCrud {
   caseUseUser: CaseUseDeleteUser
   caseUseUserUpdate: CaseUseUpdateUser
+  caseUseFindUser: CaseUseFindUsers
 
-  constructor (caseUseDelete: CaseUseDeleteUser, caseUseUpdate: CaseUseUpdateUser) {
+  constructor (caseUseDelete: CaseUseDeleteUser, caseUseUpdate: CaseUseUpdateUser, caseUseFindUser: CaseUseFindUsers) {
     this.caseUseUser = caseUseDelete
     this.caseUseUserUpdate = caseUseUpdate
+    this.caseUseFindUser = caseUseFindUser
 
     this.findById = this.UpdateUser.bind(this)
     this.findUsers = this.findUsers.bind(this)
