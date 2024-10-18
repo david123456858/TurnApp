@@ -15,7 +15,8 @@ export const routeUser = (): Router => {
 
   const controller = new controllerUserCrud(caseUseUserDelete, caseUseUserUpdate, caseUseUserFind)
 
-  router.get(`${baseRoute}/users`)
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
+  router.get(`${baseRoute}/users`, controller.findUsers)
 
   return router
 }
