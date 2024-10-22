@@ -24,7 +24,15 @@ export class controllerUserCrud {
   }
 
   async findUsers (req: Request, res: Response, next: NextFunction): Promise<any> {
-
+    const users = await this.caseUseFindUser.findUsers()
+    if (!users.success) {
+      const error = {
+        statusCode: users.status,
+        error: users.error
+      }
+      next(error)
+    }
+    res.status(users.status).json(users)
   }
 
   async findById (req: Request, res: Response, next: NextFunction): Promise<any> {

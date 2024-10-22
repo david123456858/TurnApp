@@ -26,6 +26,7 @@ export class repositoryUser implements IcrudRepository<User> {
 
   async findAll (): Promise<any> {
     const dataUsers = await userModel.find()
+    console.log(dataUsers)
     return dataUsers
   }
 

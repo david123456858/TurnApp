@@ -11,7 +11,10 @@ export class CaseUseFindUsers {
 
   async findUsers (): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
     try {
-      const users = this.respository.findAll()
+      const users = await this.respository.findAll()
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises, @typescript-eslint/strict-boolean-expressions
+      if (!users) return FailureProccess('Error not found', 404)
+
       return SuccessProcess(users, 200)
     } catch (error) {
       return FailureProccess('Error internal server', 500)

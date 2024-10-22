@@ -4,6 +4,7 @@ import cors from 'cors'
 
 import { dbBase } from './db/db'
 import { routerAuth } from '../adapters/router/Auth/auth'
+import { routeUser } from '../adapters/router/users/userRoute'
 
 const app = express()
 
@@ -32,6 +33,7 @@ async function starDb (): Promise<void> {
 void starDb()
 
 app.use(routerAuth())
+app.use(routeUser())
 
 app.disable('x-powered-by')
 
