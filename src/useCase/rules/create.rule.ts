@@ -13,7 +13,7 @@ export class caseUseCreated {
   async createRule (data: registerRuleDto): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
     try {
       // logica crear role
-      const ruleFindVerify = this.repositoryRules.findByNameRule(data.nameRule)
+      const ruleFindVerify = await this.repositoryRules.findByNameRule(data.nameRule)
 
       if (ruleFindVerify !== null) return FailureProccess('rule already created', 409)
 

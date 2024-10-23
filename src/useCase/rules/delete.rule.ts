@@ -13,6 +13,7 @@ export class caseUseCreated {
     try {
       // logica crear role
       await this.repositoryRules.delete(data.idRules)
+
       return SuccessProcess('rule deleted', 201)
     } catch (error) {
       return FailureProccess('error internal server', 500)
