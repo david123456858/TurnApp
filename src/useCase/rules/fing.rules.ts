@@ -12,6 +12,7 @@ export class caseUseCreated {
     try {
       // logica crear role
       const findRules = await this.repositoryRules.findAll()
+
       return SuccessProcess(findRules, 201)
     } catch (error) {
       return FailureProccess('error internal server', 500)
