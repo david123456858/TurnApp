@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { Router } from 'express'
 import { repositoryUser } from '../../../repository/user/repository.user'
 import { CaseUseDeleteUser } from '../../../useCase/users/user.delete'
@@ -12,11 +13,19 @@ export const routeUser = (): Router => {
   const caseUseUserDelete = new CaseUseDeleteUser(respository)
   const caseUseUserFind = new CaseUseFindUsers(respository)
   const caseUseUserUpdate = new CaseUseUpdateUser(respository)
+  const caseUseUserDeleted = new CaseUseDeleteUser(respository)
 
-  const controller = new controllerUserCrud(caseUseUserDelete, caseUseUserUpdate, caseUseUserFind)
+  const controller = new controllerUserCrud(
+    caseUseUserDelete,
+    caseUseUserUpdate,
+    caseUseUserFind,
+    caseUseUserDeleted
+  )
 
-  // eslint-disable-next-line @typescript-eslint/no-misused-promises
   router.get(`${baseRoute}/users`, controller.findUsers)
+  router.post(`${baseRoute}/user/:id`, controller.findById)
+  router.post(`${baseRoute}/userDeleted/:id`, controller.userDelete)
+  router.put(`${baseRoute}/updateUser/:id`, controller.UpdateUser)
 
   return router
 }

@@ -7,11 +7,13 @@ export class controllerUserCrud {
   caseUseUser: CaseUseDeleteUser
   caseUseUserUpdate: CaseUseUpdateUser
   caseUseFindUser: CaseUseFindUsers
+  caseUseDeleted: CaseUseDeleteUser
 
-  constructor (caseUseDelete: CaseUseDeleteUser, caseUseUpdate: CaseUseUpdateUser, caseUseFindUser: CaseUseFindUsers) {
+  constructor (caseUseDelete: CaseUseDeleteUser, caseUseUpdate: CaseUseUpdateUser, caseUseFindUser: CaseUseFindUsers, caseUseDeleted: CaseUseDeleteUser) {
     this.caseUseUser = caseUseDelete
     this.caseUseUserUpdate = caseUseUpdate
     this.caseUseFindUser = caseUseFindUser
+    this.caseUseDeleted = caseUseDelete
 
     this.findById = this.UpdateUser.bind(this)
     this.findUsers = this.findUsers.bind(this)
@@ -20,7 +22,16 @@ export class controllerUserCrud {
   }
 
   async userDelete (req: Request, res: Response, next: NextFunction): Promise<any> {
-
+    const idUser = req.params.id
+    const userDeleted = await this.caseUseDeleted.deleteUser(idUser)
+    if (!userDeleted.success) {
+      const error = {
+        statusCode: userDeleted.status,
+        error: userDeleted.error
+      }
+      next(error)
+    }
+    res.status(userDeleted.status).json(userDeleted)
   }
 
   async findUsers (req: Request, res: Response, next: NextFunction): Promise<any> {
