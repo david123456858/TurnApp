@@ -4,6 +4,7 @@ import { IFailureProcess, ISuccessProcess } from '../../adapters/interface/resul
 
 export class CaseUseDeleteUser {
   private readonly repostitory: repositoryUser
+
   constructor (repositorysUser: repositoryUser) {
     this.repostitory = repositorysUser
   }
