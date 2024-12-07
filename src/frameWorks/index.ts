@@ -2,7 +2,7 @@ import express, { Response, Request } from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 
-import { dbBase } from './db/db'
+// import { dbBase } from './db/db'
 import { routerAuth } from '../adapters/router/Auth/auth'
 import { routeUser } from '../adapters/router/users/userRoute'
 
@@ -19,18 +19,18 @@ app.use(express.json())
 
 app.use(morgan('dev'))
 
-async function starDb (): Promise<void> {
-  const DB = dbBase.instance
-  const dbIntanse = await DB.connectDb()
-  if (dbIntanse === null) {
-    return console.log('No se pudo contectar')
-  }
-  if (dbIntanse !== null) {
-    console.log('Se pudo conectar')
-  }
-}
+// async function starDb (): Promise<void> {
+//   const DB = dbBase.instance
+//   const dbIntanse = await DB.connectDb()
+//   if (dbIntanse === null) {
+//     return console.log('No se pudo contectar')
+//   }
+//   if (dbIntanse !== null) {
+//     console.log('Se pudo conectar')
+//   }
+// }
 
-void starDb()
+// void starDb()
 
 app.use(routerAuth())
 app.use(routeUser())
