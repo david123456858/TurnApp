@@ -1,8 +1,8 @@
-import { model, Schema } from 'mongoose'
+// import { model, Schema } from 'mongoose'
 
-const employeSchema = new Schema({
-})
+// const employeSchema = new Schema({
+// })
 
-const employeModel = model('empleados', employeSchema)
+// const employeModel = model('empleados', employeSchema)
 
-export default employeModel
+// export default employeModel

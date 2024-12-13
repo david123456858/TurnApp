@@ -1,23 +1,46 @@
-import { connect, Mongoose } from 'mongoose'
-import { URI } from '../../adapters/config/dbConfig'
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 
-export class dbBase {
-  private static _intanceDb: dbBase
+import { config } from 'dotenv'
+import { DataSource } from 'typeorm'
 
-  // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-  public async connectDb (): Promise<void | Mongoose> {
+config()
+
+export class DataBase {
+  private static _intance: DataBase
+
+  private readonly appDataSource: DataSource
+
+  constructor () {
+    const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env
+    this.appDataSource = new DataSource({
+      type: 'postgres',
+      host: PGHOST,
+      port: 5432,
+      password: PGPASSWORD,
+      database: PGDATABASE,
+      username: PGUSER,
+      entities: [],
+      synchronize: true,
+      logging: true,
+      ssl: { rejectUnauthorized: false }
+    })
+  }
+
+  public async connectBD (): Promise<DataSource | undefined> {
     try {
-      const client = await connect(URI, { autoIndex: false })
-      return client
+      await this.appDataSource.initialize()
+      return this.appDataSource
     } catch (error) {
-      console.log('error db: ', error)
+      console.log('error de conexion Bd ' + error)
+      return undefined
     }
   }
 
-  public static get instance (): dbBase {
-    if (this._intanceDb !== null) {
-      return (this._intanceDb = new dbBase())
+  public static get Instance (): DataBase {
+    if (!DataBase._intance) {
+      DataBase._intance = new DataBase()
     }
-    return this._intanceDb
+    return DataBase._intance
   }
 }
