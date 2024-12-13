@@ -1,15 +1,15 @@
 // import userModel from '../../adapters/models/repository/users/user'
-import { User } from '../../domain/users/users'
+import { Users } from '../../Entity/Users/users'
 import { IcrudRepository } from './../../adapters/interface/repository/crudRepository'
 
-export class repositoryUser implements IcrudRepository<User> {
+export class repositoryUser implements IcrudRepository<Users> {
   // esl int-disable-next-line @typescript-eslint/no-invalid-void-type
   // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-  async save (data: User): Promise<void | Error> {
+  async save (data: Users): Promise<void | Error> {
 
   }
 
-  async update (data: User): Promise<any> {
+  async update (data: Users): Promise<any> {
     const result = ''
     return result
   }

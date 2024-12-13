@@ -1,14 +1,18 @@
-import { BaseEntity, Column, PrimaryColumn } from 'typeorm'
+import { BaseEntity, Column, Entity, ManyToOne, PrimaryColumn } from 'typeorm'
+import { Users } from '../Users/users'
 
-export class roles extends BaseEntity {
+@Entity('Roles')
+export class Roles extends BaseEntity {
   @PrimaryColumn()
     idRole!: string
 
-  @Column({ type: 'varchar2' })
+  @Column({ type: 'varchar' })
     nameRole!: string
 
-  @Column({ type: 'varchar2' })
+  @Column({ type: 'varchar' })
     description!: string
 
   // relacion a que compañia pertenece este rol
+  @ManyToOne(() => Users, (user: Users) => user.roles)
+    company!: Users
 }

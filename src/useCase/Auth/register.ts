@@ -1,6 +1,6 @@
 import { IFailureProcess, ISuccessProcess } from '../../adapters/interface/results/restults'
 import { FailureProccess, SuccessProcess } from '../../adapters/utils/result/resultApi'
-import { User } from '../../domain/users/users'
+import { Users } from '../../Entity/Users/users'
 import { registerDto } from '../../Dtos/auth/registerDtos'
 import { repositoryUser } from '../../repository/user/repository.user'
 import bcryptjs from 'bcryptjs'
@@ -21,7 +21,7 @@ export class caseUseRegister {
       const salt = bcryptjs.genSaltSync(10)
       const hash = bcryptjs.hashSync(user.password, salt)
 
-      const userSave = new User()
+      const userSave = new Users()
 
       userSave.nit = user.nit
       userSave.email = user.email
