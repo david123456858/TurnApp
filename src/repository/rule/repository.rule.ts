@@ -1,11 +1,11 @@
 import { IcrudRepository } from '../../adapters/interface/repository/crudRepository'
-import { rules } from '../../domain/rules/rules'
+import { Roles } from '../../Entity/Role/roles'
 
-export class repositoryRules implements IcrudRepository<rules> {
-  async save (data: rules): Promise<any> {
+export class repositoryRules implements IcrudRepository<Roles> {
+  async save (data: Roles): Promise<any> {
   }
 
-  async update (data: rules): Promise<any> {
+  async update (data: Roles): Promise<any> {
 
   }
 

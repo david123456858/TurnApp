@@ -1,37 +1,37 @@
 // import userModel from '../../adapters/models/repository/users/user'
-import { User } from '../../domain/users/users'
+import { Users } from '../../Entity/Users/users'
 import { IcrudRepository } from './../../adapters/interface/repository/crudRepository'
 
-export class repositoryUser implements IcrudRepository<User> {
+export class repositoryUser implements IcrudRepository<Users> {
   // esl int-disable-next-line @typescript-eslint/no-invalid-void-type
   // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-  async save (data: User): Promise<void | Error> {
-
+  async save (data: Users): Promise<void | Error> {
+    await Users.save(data)
   }
 
-  async update (data: User): Promise<any> {
-    const result = ''
+  async update (data: Users): Promise<any> {
+    await Users.findOneBy({ email: data.email })
+    const result = await Users.save(data)
     return result
   }
 
   async delete (id: string): Promise<any> {
-    const resultRemoveUser = 'userModel.deleteOne({ nit: id })'
+    const resultRemoveUser = await Users.delete({ nit: id })
     return resultRemoveUser
   }
 
-  async findById (id: string): Promise<any> {
-    const dataUser = 'userModel.findOne({ nit: id })'
+  async findById (email: string): Promise<any> {
+    const dataUser = await Users.findOneBy({ email })
     return dataUser
   }
 
   async findAll (): Promise<any> {
-    const dataUsers = ' userModel.find()'
-    console.log(dataUsers)
-    return dataUsers
+    const dataUsers = Users.find()
+    return await dataUsers
   }
 
   async findByEmail (emailSend: string): Promise<any> {
-    const resultSearchEmail = 'userModel.findOne({ email: emailSend })'
-    return resultSearchEmail
+    const dataUser = await Users.findOneBy({ email: emailSend })
+    return dataUser
   }
 }

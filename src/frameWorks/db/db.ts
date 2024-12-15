@@ -4,6 +4,12 @@
 import { config } from 'dotenv'
 import { DataSource } from 'typeorm'
 
+import { Users } from '../../Entity/Users/users'
+import { Saits } from '../../Entity/Sait/saits'
+import { Schedules } from '../../Entity/Schedules/schedules'
+import { Roles } from '../../Entity/Role/roles'
+import { Employes } from '../../Entity/Employes/employes'
+
 config()
 
 export class DataBase {
@@ -20,7 +26,7 @@ export class DataBase {
       password: PGPASSWORD,
       database: PGDATABASE,
       username: PGUSER,
-      entities: [],
+      entities: [Users, Roles, Saits, Schedules, Employes],
       synchronize: true,
       logging: true,
       ssl: { rejectUnauthorized: false }

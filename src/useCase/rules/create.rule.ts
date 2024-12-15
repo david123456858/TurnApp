@@ -1,6 +1,6 @@
 import { IFailureProcess, ISuccessProcess } from '../../adapters/interface/results/restults'
 import { FailureProccess, SuccessProcess } from '../../adapters/utils/result/resultApi'
-import { rules } from '../../domain/rules/rules'
+// import { Roles } from '../../Entity/Role/roles'
 import { registerRuleDto } from '../../Dtos/rules/registerDtoRules'
 import { repositoryRules } from '../../repository/rule/repository.rule'
 
@@ -17,14 +17,13 @@ export class caseUseCreated {
 
       if (ruleFindVerify !== null) return FailureProccess('rule already created', 409)
 
-      const rule = new rules()
-      rule.nameRule = data.nameRule
-      rule.numberTotal = data.numberTotal
-      rule.description = data.description
-      rule.company = data.company
+      // const rule = new Roles()
+      // rule.nameRole = data.nameRule
+      // rule.numberTotal = data.numberTotal
+      // rule.description = data.description
 
-      const resultRule = this.repositoryRules.save(rule)
-      console.log(resultRule)
+      // const resultRule = this.repositoryRules.save(rule)
+      // console.log(resultRule)
 
       return SuccessProcess('rule created', 201)
     } catch (error) {
