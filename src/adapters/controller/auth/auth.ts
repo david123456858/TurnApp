@@ -21,7 +21,17 @@ export class AuthController {
 
     const registerCreated = await this.caseUseRegister.register(userReq)
 
-    res.status(registerCreated.status).json({ data: registerCreated })
+    if (!registerCreated.success) {
+      const error = {
+        status: registerCreated.status,
+        messagge: registerCreated.error
+      }
+      return next(error)
+    }
+
+    console.log(registerCreated)
+
+    res.status(registerCreated.status).json({ data: registerCreated.value })
   }
 
   async loggin (req: Request, res: Response, next: NextFunction): Promise<void> {
@@ -29,6 +39,13 @@ export class AuthController {
 
     const userLogged = await this.caseUseLoggin.loggin(user)
 
-    res.status(userLogged.status).json({ data: userLogged })
+    if (!userLogged.success) {
+      const error = {
+        status: userLogged.status,
+        messagge: userLogged.error
+      }
+      return next(error)
+    }
+    res.status(userLogged.status).json({ data: userLogged.value })
   }
 }
