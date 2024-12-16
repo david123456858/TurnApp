@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator'
+import { IsNotEmpty, IsString } from 'class-validator'
 
 export class registerRuleDto {
   @IsNotEmpty()
@@ -8,10 +8,6 @@ export class registerRuleDto {
   @IsNotEmpty()
   @IsString()
     nameRule!: string
-
-  @IsNotEmpty()
-  @IsNumber()
-    numberTotal!: string
 
   @IsString()
     description!: string
