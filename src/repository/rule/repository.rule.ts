@@ -3,6 +3,7 @@ import { Roles } from '../../Entity/Role/roles'
 
 export class repositoryRules implements IcrudRepository<Roles> {
   async save (data: Roles): Promise<any> {
+    await Roles.save(data)
   }
 
   async update (data: Roles): Promise<any> {

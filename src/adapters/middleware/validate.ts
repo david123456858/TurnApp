@@ -8,12 +8,12 @@ export const validateDtos = (classDto: any) => {
     const classInstanceBody = plainToInstance(classDto, req.body)
 
     const errorValidateClass = await validate(classInstanceBody)
+    console.log(errorValidateClass)
 
     if (errorValidateClass.length > 0) {
       res.status(422).json({ error: 'Inprocessible entity' })
       return
     }
-    console.log(classDto.nit)
     req.body = classInstanceBody
     next()
   }
