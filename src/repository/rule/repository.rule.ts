@@ -11,18 +11,22 @@ export class repositoryRules implements IcrudRepository<Roles> {
   }
 
   async delete (id: string): Promise<any> {
-
+    const deletedRole = await Roles.delete({ idRole: id })
+    return deletedRole
   }
 
   async findById (id: string): Promise<any> {
-
+    const findRole = await Roles.findOneBy({ idRole: id })
+    return findRole
   }
 
   async findAll (): Promise<any> {
-
+    const finds = await Roles.find()
+    return finds
   }
 
   async findByNameRule (data: string): Promise<any> {
-
+    const findByNameRole = Roles.findOneBy({ nameRole: data })
+    return await findByNameRole
   }
 }
