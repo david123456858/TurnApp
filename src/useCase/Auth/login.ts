@@ -26,7 +26,6 @@ export class caseUserLoggin {
 
       return SuccessProcess(userLogged, 200)
     } catch (error) {
-      console.log(error)
       return FailureProccess('error internal server', 500)
     }
   }

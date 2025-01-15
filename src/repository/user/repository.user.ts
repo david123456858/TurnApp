@@ -32,6 +32,8 @@ export class repositoryUser implements IcrudRepository<Users> {
 
   async findByEmail (emailSend: string): Promise<any> {
     const dataUser = await Users.findOneBy({ email: emailSend })
+    console.log('llegue')
+    console.log(dataUser)
     return dataUser
   }
 }

@@ -28,6 +28,8 @@ void StarBd()
 
 app.use(express.json())
 app.use(morgan('dev'))
+
+// part the routes
 app.use(routerAuth())
 app.use(routeUser())
 

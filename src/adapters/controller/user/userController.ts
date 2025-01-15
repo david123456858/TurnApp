@@ -16,11 +16,10 @@ export class controllerUserCrud {
     this.caseUseFindUser = caseUseFindUser
     this.caseUseDeleted = caseUseDelete
 
-    this.findById = this.UpdateUser.bind(this)
+    this.findById = this.findById.bind(this)
     this.findUsers = this.findUsers.bind(this)
     this.userDelete = this.userDelete.bind(this)
     this.UpdateUser = this.UpdateUser.bind(this)
-    this.findById = this.findById.bind(this)
   }
 
   async userDelete (req: Request, res: Response, next: NextFunction): Promise<any> {
