@@ -16,3 +16,12 @@ export const convertInfoUsers = (users: Users[]): any => {
 
   return classConverted
 }
+export const convertInfoUser = (users: Users): any => {
+  const user = new userInfo()
+  user.email = users.email
+  user.nameCompany = users.nameCompany
+  user.nit = users.nit
+  user.numberPhone = users.numberPhone
+
+  return user
+}

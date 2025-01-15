@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { IFailureProcess, ISuccessProcess } from '../../adapters/interface/results/restults'
 import { FailureProccess, SuccessProcess } from '../../adapters/utils/result/resultApi'
+import { convertInfoUser } from '../../adapters/utils/usersInfoConver/userInfo'
 import { repositoryUser } from '../../repository/user/repository.user'
 
 export class caseUseFindByEmail {
@@ -20,7 +21,9 @@ export class caseUseFindByEmail {
 
       if (!userFind) return FailureProccess('user dont exist', 404)
 
-      return SuccessProcess(userFind, 200)
+      const user = convertInfoUser(userFind)
+
+      return SuccessProcess(user, 200)
     } catch (error) {
       return FailureProccess('Error internar server', 500)
     }
