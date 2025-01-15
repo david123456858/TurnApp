@@ -6,6 +6,7 @@ import { CaseUseFindUsers } from '../../../useCase/users/user.find'
 import { baseRoute, router } from '../../config/routerConfig'
 import { controllerUserCrud } from '../../controller/user/userController'
 import { CaseUseUpdateUser } from '../../../useCase/users/user.update'
+import { caseUseFindByEmail } from '../../../useCase/users/user.findById'
 
 export const routeUser = (): Router => {
   const respository = new repositoryUser()
@@ -13,17 +14,17 @@ export const routeUser = (): Router => {
   const caseUseUserDelete = new CaseUseDeleteUser(respository)
   const caseUseUserFind = new CaseUseFindUsers(respository)
   const caseUseUserUpdate = new CaseUseUpdateUser(respository)
-  const caseUseUserDeleted = new CaseUseDeleteUser(respository)
+  const caseUseUserFindByEmail = new caseUseFindByEmail(respository)
 
   const controller = new controllerUserCrud(
     caseUseUserDelete,
     caseUseUserUpdate,
     caseUseUserFind,
-    caseUseUserDeleted
+    caseUseUserFindByEmail
   )
 
   router.get(`${baseRoute}/users`, controller.findUsers)
-  router.post(`${baseRoute}/user/:id`, controller.findById)
+  router.get(`${baseRoute}/user/:id`, controller.findById)
   router.post(`${baseRoute}/userDeleted/:id`, controller.userDelete)
   router.put(`${baseRoute}/updateUser/:id`, controller.UpdateUser)
 

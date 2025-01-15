@@ -2,15 +2,16 @@ import { NextFunction, Request, Response } from 'express'
 import { CaseUseDeleteUser } from '../../../useCase/users/user.delete'
 import { CaseUseUpdateUser } from '../../../useCase/users/user.update'
 import { CaseUseFindUsers } from '../../../useCase/users/user.find'
+import { caseUseFindByEmail } from '../../../useCase/users/user.findById'
 
 export class controllerUserCrud {
-  caseUseUser: CaseUseDeleteUser
+  caseUseUser: caseUseFindByEmail
   caseUseUserUpdate: CaseUseUpdateUser
   caseUseFindUser: CaseUseFindUsers
   caseUseDeleted: CaseUseDeleteUser
 
-  constructor (caseUseDelete: CaseUseDeleteUser, caseUseUpdate: CaseUseUpdateUser, caseUseFindUser: CaseUseFindUsers, caseUseDeleted: CaseUseDeleteUser) {
-    this.caseUseUser = caseUseDelete
+  constructor (caseUseDelete: CaseUseDeleteUser, caseUseUpdate: CaseUseUpdateUser, caseUseFindUser: CaseUseFindUsers, caseUseFindByEmail: caseUseFindByEmail) {
+    this.caseUseUser = caseUseFindByEmail
     this.caseUseUserUpdate = caseUseUpdate
     this.caseUseFindUser = caseUseFindUser
     this.caseUseDeleted = caseUseDelete
@@ -19,6 +20,7 @@ export class controllerUserCrud {
     this.findUsers = this.findUsers.bind(this)
     this.userDelete = this.userDelete.bind(this)
     this.UpdateUser = this.UpdateUser.bind(this)
+    this.findById = this.findById.bind(this)
   }
 
   async userDelete (req: Request, res: Response, next: NextFunction): Promise<any> {
@@ -47,7 +49,16 @@ export class controllerUserCrud {
   }
 
   async findById (req: Request, res: Response, next: NextFunction): Promise<any> {
+    const user = await this.caseUseUser.findByEmail(req.params.id)
 
+    if (!user.success) {
+      const error = {
+        statusCode: user.status,
+        error: user.error
+      }
+      next(error)
+    }
+    res.status(user.status).json(user)
   }
 
   async UpdateUser (req: Request, res: Response, next: NextFunction): Promise<any> {
