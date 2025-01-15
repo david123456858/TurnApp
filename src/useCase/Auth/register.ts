@@ -32,7 +32,6 @@ export class caseUseRegister {
       await this.repository.save(userSave)
       return SuccessProcess('created user', 200)
     } catch (error) {
-      console.log(error)
       return FailureProccess('Algo sucedio con esto', 500)
     }
   }

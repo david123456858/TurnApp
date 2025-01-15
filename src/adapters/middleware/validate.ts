@@ -11,7 +11,10 @@ export const validateDtos = (classDto: any) => {
     console.log(errorValidateClass)
 
     if (errorValidateClass.length > 0) {
-      res.status(422).json({ error: 'Inprocessible entity' })
+      res.status(422).json({
+        error: 'Inprocessible entity',
+        info: errorValidateClass[0].constraints
+      })
       return
     }
     req.body = classInstanceBody
