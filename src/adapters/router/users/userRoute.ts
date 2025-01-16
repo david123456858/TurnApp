@@ -7,6 +7,8 @@ import { baseRoute, router } from '../../config/routerConfig'
 import { controllerUserCrud } from '../../controller/user/userController'
 import { CaseUseUpdateUser } from '../../../useCase/users/user.update'
 import { caseUseFindByEmail } from '../../../useCase/users/user.findById'
+import { validateDtos } from '../../middleware/validate'
+import { updateUserDto } from '../../../Dtos/users/userUpdateDto'
 
 export const routeUser = (): Router => {
   const respository = new repositoryUser()
@@ -25,8 +27,8 @@ export const routeUser = (): Router => {
 
   router.get(`${baseRoute}/users`, controller.findUsers)
   router.get(`${baseRoute}/user/:id`, controller.findById)
-  router.post(`${baseRoute}/userDeleted/:id`, controller.userDelete)
-  router.put(`${baseRoute}/updateUser/:id`, controller.UpdateUser)
+  router.delete(`${baseRoute}/userDeleted/:id`, controller.userDelete)
+  router.put(`${baseRoute}/updateUser`, validateDtos(updateUserDto), controller.UpdateUser)
 
   return router
 }

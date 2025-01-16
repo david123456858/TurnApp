@@ -30,9 +30,9 @@ export class controllerUserCrud {
         statusCode: userDeleted.status,
         error: userDeleted.error
       }
-      next(error)
+      return next(error)
     }
-    res.status(userDeleted.status).json(userDeleted)
+    res.status(userDeleted.status).json(userDeleted.value)
   }
 
   async findUsers (req: Request, res: Response, next: NextFunction): Promise<any> {
@@ -42,9 +42,9 @@ export class controllerUserCrud {
         statusCode: users.status,
         error: users.error
       }
-      next(error)
+      return next(error)
     }
-    res.status(users.status).json(users)
+    res.status(users.status).json(users.value)
   }
 
   async findById (req: Request, res: Response, next: NextFunction): Promise<any> {
@@ -55,21 +55,23 @@ export class controllerUserCrud {
         statusCode: user.status,
         error: user.error
       }
-      next(error)
+      return next(error)
     }
-    res.status(user.status).json(user)
+    res.status(user.status).json(user.value)
   }
 
   async UpdateUser (req: Request, res: Response, next: NextFunction): Promise<any> {
-    const users = await this.caseUseFindUser.findUsers()
+    const usersBody = req.body
+
+    const users = await this.caseUseUserUpdate.UpdateUser(usersBody)
 
     if (!users.success) {
       const error = {
         statusCode: users.status,
         error: users.error
       }
-      next(error)
+      return next(error)
     }
-    res.status(users.status).json(users.success)
+    res.status(users.status).json({ message: users.value })
   }
 }

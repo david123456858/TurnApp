@@ -10,13 +10,13 @@ export class repositoryUser implements IcrudRepository<Users> {
   }
 
   async update (data: Users): Promise<any> {
-    await Users.findOneBy({ email: data.email })
-    const result = await Users.save(data)
+    const { email, ...updateUser } = data // de esta manera separo email para poder buscar
+    const result = await Users.update({ email }, updateUser)
     return result
   }
 
   async delete (id: string): Promise<any> {
-    const resultRemoveUser = await Users.delete({ nit: id })
+    const resultRemoveUser = await Users.delete({ email: id })
     return resultRemoveUser
   }
 
