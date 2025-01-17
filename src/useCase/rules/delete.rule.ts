@@ -1,19 +1,18 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 import { IFailureProcess, ISuccessProcess } from '../../adapters/interface/results/restults'
 import { FailureProccess, SuccessProcess } from '../../adapters/utils/result/resultApi'
-import { DeleteDtoRules } from '../../Dtos/rules/deleteDtoRules'
 import { repositoryRules } from '../../repository/rule/repository.rule'
 
-export class caseUseCreated {
+export class caseUseDeletedRole {
   private readonly repositoryRules: repositoryRules
   constructor (respositoy: repositoryRules) {
     this.repositoryRules = respositoy
   }
 
-  async deleteRule (data: DeleteDtoRules): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
+  async deleteRule (data: string): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
     try {
       // logica crear role
-      const ruleDeleted = await this.repositoryRules.delete(data.idRules)
+      const ruleDeleted = await this.repositoryRules.delete(data)
 
       return SuccessProcess(`rule delete ${ruleDeleted}`, 201)
     } catch (error) {

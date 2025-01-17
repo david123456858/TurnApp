@@ -5,7 +5,7 @@ import { registerRuleDto } from '../../Dtos/rules/registerDtoRules'
 import { repositoryRules } from '../../repository/rule/repository.rule'
 
 export class caseUseCreated {
-  private readonly repositoryRules: repositoryRules // no me acuerdo de una poronga
+  private readonly repositoryRules: repositoryRules
   constructor (respositoy: repositoryRules) {
     this.repositoryRules = respositoy
   }

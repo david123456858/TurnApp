@@ -7,7 +7,9 @@ export class repositoryRules implements IcrudRepository<Roles> {
   }
 
   async update (data: Roles): Promise<any> {
-
+    const { idRole, ...updateRole } = data
+    const resultQuery = await Roles.update({ idRole }, updateRole)
+    return resultQuery
   }
 
   async delete (id: string): Promise<any> {
