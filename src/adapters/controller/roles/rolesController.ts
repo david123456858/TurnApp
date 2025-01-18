@@ -1,3 +1,4 @@
+import { NextFunction, Request, Response } from 'express'
 import { caseUseCreated } from '../../../useCase/rules/create.rule'
 import { caseUseDeletedRole } from '../../../useCase/rules/delete.rule'
 import { CaseUseFindById } from '../../../useCase/rules/findById'
@@ -14,5 +15,9 @@ export class controllerRoles {
     this.caseUseDeleteRoles = caseUseDeleteRoles
     this.caseUseFindById = caseUseFindById
     this.caseUseFinds = caseUseFinds
+  }
+
+  async createdRoles (Req: Request, res: Response, Next: NextFunction): Promise<Response> {
+    return res.json({})
   }
 }
