@@ -17,7 +17,7 @@ export class caseUseFindByEmail {
 
       if (emailUser === undefined) return FailureProccess('Bad Request', 403)
 
-      const userFind = await this.repository.findByEmail(emailUser)
+      const userFind = await this.repository.findById(emailUser)
 
       if (!userFind) return FailureProccess('user dont exist', 404)
 

@@ -10,8 +10,8 @@ export class repositoryUser implements IcrudRepository<Users> {
   }
 
   async update (data: Users): Promise<any> {
-    const { email, ...updateUser } = data // de esta manera separo email para poder buscar
-    const result = await Users.update({ email }, updateUser)
+    await Users.findOneBy({ email: data.email })
+    const result = await Users.save(data)
     return result
   }
 
@@ -21,19 +21,17 @@ export class repositoryUser implements IcrudRepository<Users> {
   }
 
   async findById (email: string): Promise<any> {
-    const dataUser = await Users.findOneBy({ email })
+    const dataUser = await Users.findOne({ where: { email }, relations: { roles: true, saits: true, schedules: true } })
     return dataUser
   }
 
   async findAll (): Promise<any> {
-    const dataUsers = Users.find()
+    const dataUsers = Users.find({ relations: { roles: true, saits: true, schedules: true } })
     return await dataUsers
   }
 
   async findByEmail (emailSend: string): Promise<any> {
     const dataUser = await Users.findOneBy({ email: emailSend })
-    console.log('llegue')
-    console.log(dataUser)
     return dataUser
   }
 }
