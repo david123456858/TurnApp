@@ -17,7 +17,17 @@ export class controllerRoles {
     this.caseUseFinds = caseUseFinds
   }
 
-  async createdRoles (Req: Request, res: Response, Next: NextFunction): Promise<Response> {
-    return res.json({})
+  async createdRoles (req: Request, res: Response, Next: NextFunction): Promise<any> {
+    const result = await this.caseUseCreatedRole.createRule(req.body)
+
+    if (!result.success) {
+      const error = {
+        statusCode: result.status,
+        value: result.error
+      }
+      return Next(error)
+    }
+
+    return res.json({ message: result.value }).status(result.status)
   }
 }
