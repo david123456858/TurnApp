@@ -9,6 +9,7 @@ import { repositoryUser } from '../../repository/user/repository.user'
 export class caseUseCreated {
   private readonly repositoryRules: repositoryRules
   private readonly respositoryUsers: repositoryUser
+
   constructor (respositoy: repositoryRules, repositoryUser: repositoryUser) {
     this.repositoryRules = respositoy
     this.respositoryUsers = repositoryUser

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { IFailureProcess, ISuccessProcess } from '../../adapters/interface/results/restults'
 import { FailureProccess, SuccessProcess } from '../../adapters/utils/result/resultApi'
 import { repositoryRules } from '../../repository/rule/repository.rule'
@@ -10,10 +11,11 @@ export class caseUseFindsRoles {
 
   async findRule (): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
     try {
-      // logica crear role
       const findRules = await this.repositoryRules.findAll()
 
-      return SuccessProcess(findRules, 201)
+      if (!findRules) return FailureProccess('Not found', 404)
+
+      return SuccessProcess(findRules, 200)
     } catch (error) {
       return FailureProccess('error internal server', 500)
     }

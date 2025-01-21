@@ -34,11 +34,32 @@ export class controllerRoles {
   }
 
   async findsRoles (req: Request, res: Response, Next: NextFunction): Promise<any> {
+    const result = await this.caseUseFinds.findRule()
 
+    if (!result.success) {
+      const error = {
+        statusCode: result.status,
+        value: result.error
+      }
+      return Next(error)
+    }
+
+    return res.json({ message: result.value }).status(result.status)
   }
 
   async findsByIdRoles (req: Request, res: Response, Next: NextFunction): Promise<any> {
+    const idTheRole = req.params.id
+    const result = await this.caseUseFindById.findByIdRole(idTheRole)
 
+    if (!result.success) {
+      const error = {
+        statusCode: result.status,
+        value: result.error
+      }
+      return Next(error)
+    }
+
+    return res.json({ message: result.value }).status(result.status)
   }
 
   async Update (req: Request, res: Response, Next: NextFunction): Promise<any> {

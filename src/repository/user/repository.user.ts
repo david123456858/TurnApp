@@ -26,8 +26,8 @@ export class repositoryUser implements IcrudRepository<Users> {
   }
 
   async findAll (): Promise<any> {
-    const dataUsers = Users.find({ relations: { roles: true, saits: true, schedules: true } })
-    return await dataUsers
+    const dataUsers = await Users.find({ relations: { roles: true } })
+    return dataUsers
   }
 
   async findByEmail (emailSend: string): Promise<any> {

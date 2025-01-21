@@ -25,8 +25,8 @@ export class Users extends BaseEntity {
     roles!: Roles[]
 
   @OneToMany(() => Saits, (saits: Saits) => saits.company)
-    saits!: Saits
+    saits!: Saits[]
 
   @OneToMany(() => Schedules, (schedules: Schedules) => schedules.company)
-    schedules!: Schedules
+    schedules!: Schedules[]
 }

@@ -1,3 +1,7 @@
+import { Schedules } from './../../Entity/Schedules/schedules'
+import { Roles } from '../../Entity/Role/roles'
+import { Employes } from '../../Entity/Employes/employes'
+
 import { IsNotEmpty, IsString, Length } from 'class-validator'
 
 export class userInfo {
@@ -18,4 +22,13 @@ export class userInfo {
   @IsNotEmpty()
   @Length(10, 10)
     numberPhone!: string
+
+  @IsNotEmpty()
+    roles!: Roles[]
+
+  @IsNotEmpty()
+    schedules!: Schedules[]
+
+  @IsNotEmpty()
+    employes!: Employes[]
 }

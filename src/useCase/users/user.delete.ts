@@ -15,9 +15,7 @@ export class CaseUseDeleteUser {
 
       if (idUser === undefined) return FailureProccess('Inprocessible entity', 422)
 
-      const userDeleted = this.repostitory.delete(idUser)
-
-      console.log(userDeleted)
+      await this.repostitory.delete(idUser)
 
       return SuccessProcess('User deleted', 200)
     } catch (error) {
