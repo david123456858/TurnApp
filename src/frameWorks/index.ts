@@ -5,6 +5,7 @@ import cors from 'cors'
 import { DataBase } from './db/db'
 import { routerAuth } from '../adapters/router/Auth/auth'
 import { routeUser } from '../adapters/router/users/userRoute'
+import { routeRoles } from '../adapters/router/Role/role'
 
 const app = express()
 
@@ -32,6 +33,7 @@ app.use(morgan('dev'))
 // part the routes
 app.use(routerAuth())
 app.use(routeUser())
+app.use(routeRoles())
 
 app.disable('x-powered-by')
 

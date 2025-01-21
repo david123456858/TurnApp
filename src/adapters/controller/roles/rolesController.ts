@@ -15,6 +15,8 @@ export class controllerRoles {
     this.caseUseDeleteRoles = caseUseDeleteRoles
     this.caseUseFindById = caseUseFindById
     this.caseUseFinds = caseUseFinds
+
+    this.createdRoles = this.createdRoles.bind(this)
   }
 
   async createdRoles (req: Request, res: Response, Next: NextFunction): Promise<any> {
@@ -29,5 +31,25 @@ export class controllerRoles {
     }
 
     return res.json({ message: result.value }).status(result.status)
+  }
+
+  async findsRoles (req: Request, res: Response, Next: NextFunction): Promise<any> {
+
+  }
+
+  async findsByIdRoles (req: Request, res: Response, Next: NextFunction): Promise<any> {
+
+  }
+
+  async Update (req: Request, res: Response, Next: NextFunction): Promise<any> {
+
+  }
+
+  async delete (req: Request, res: Response, Next: NextFunction): Promise<any> {
+
+  }
+
+  async accountRoles (req: Request, res: Response, Next: NextFunction): Promise<any> {
+
   }
 }
