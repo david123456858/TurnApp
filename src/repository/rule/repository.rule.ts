@@ -27,8 +27,13 @@ export class repositoryRules implements IcrudRepository<Roles> {
     return finds
   }
 
-  async findByNameRule (data: string): Promise<any> {
+  async findByNameRule (data: string): Promise<Roles | null> {
     const findByNameRole = Roles.findOneBy({ nameRole: data })
     return await findByNameRole
+  }
+
+  async countRoles (): Promise<number> {
+    const countTotal = await Roles.count()
+    return countTotal
   }
 }

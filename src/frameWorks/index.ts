@@ -1,15 +1,18 @@
 import express, { Response, Request } from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
+import { config } from 'dotenv'
 
 import { DataBase } from './db/db'
 import { routerAuth } from '../adapters/router/Auth/auth'
 import { routeUser } from '../adapters/router/users/userRoute'
 import { routeRoles } from '../adapters/router/Role/role'
 
+config()
+
 const app = express()
 
-const port = 3001
+const port = process.env.PORT ?? 3002
 
 app.use(
   cors({
@@ -22,7 +25,7 @@ async function StarBd () {
   const db = DataBase.Instance
   const connect = await db.connectBD()
 
-  if (connect != null) console.log('Se conecto correctamente')
+  if (connect !== null) console.log('Se conecto correctamente')
 }
 
 void StarBd()
@@ -40,6 +43,7 @@ app.disable('x-powered-by')
 app.get('/', (req: Request, res: Response) => {
   res.send('Bienvenido a la cosota que voy a realizar')
 })
+
 app.listen(port, () => {
   console.log(`Escuchando es este puerto señores http://localhost:${port}`)
 })
