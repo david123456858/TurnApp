@@ -23,9 +23,10 @@ export const routeRoles = (): Router => {
   const controller = new controllerRoles(caseUseSaveRole, caseUseDeleted, caseUseFindsRols, caseUseFindByIdRoles)
 
   router.post(`${baseRoute}/create/role`, validateDtos(registerRuleDto), controller.createdRoles)
-  router.get('', () => {})
-  router.get('', () => {})
-  router.delete('', () => {})
+  router.get(`${baseRoute}/gets/roles`, controller.findsRoles)
+  router.get(`${baseRoute}/get/role/:id`, controller.findsByIdRoles)
+  router.put(`${baseRoute}/get/role/:id`, () => {})
+  router.delete(`${baseRoute}/delete/role/:id`, controller.delete)
 
   return router
 }
