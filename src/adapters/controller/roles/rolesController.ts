@@ -17,6 +17,8 @@ export class controllerRoles {
     this.caseUseFinds = caseUseFinds
 
     this.createdRoles = this.createdRoles.bind(this)
+    this.findsRoles = this.findsRoles.bind(this)
+    this.findsByIdRoles = this.findsByIdRoles.bind(this)
   }
 
   async createdRoles (req: Request, res: Response, Next: NextFunction): Promise<any> {
