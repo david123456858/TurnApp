@@ -3,7 +3,7 @@ import { Users } from '../Users/users'
 
 @Entity('Roles')
 export class Roles extends BaseEntity {
-  @PrimaryColumn()
+  @PrimaryColumn('varchar')
     idRole!: string
 
   @Column({ type: 'varchar' })

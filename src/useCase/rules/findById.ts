@@ -9,11 +9,17 @@ export class CaseUseFindById {
     this.repository = repositoryRoles
   }
 
-  async findByIdRole (): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
+  async findByIdRole (IdRole: string): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
     try {
-      return SuccessProcess('', 200)
+      if (IdRole === null) return FailureProccess('Inprocessible entity', 422)
+
+      if (IdRole === undefined) return FailureProccess('Inprocessible entity', 422)
+
+      const findRole = await this.repository.findById(IdRole)
+
+      return SuccessProcess(findRole, 200)
     } catch (error) {
-      return FailureProccess('', 500)
+      return FailureProccess('error internal server', 500)
     }
   }
 }

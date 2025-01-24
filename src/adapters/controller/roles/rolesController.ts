@@ -15,9 +15,64 @@ export class controllerRoles {
     this.caseUseDeleteRoles = caseUseDeleteRoles
     this.caseUseFindById = caseUseFindById
     this.caseUseFinds = caseUseFinds
+
+    this.createdRoles = this.createdRoles.bind(this)
+    this.findsRoles = this.findsRoles.bind(this)
+    this.findsByIdRoles = this.findsByIdRoles.bind(this)
   }
 
-  async createdRoles (Req: Request, res: Response, Next: NextFunction): Promise<Response> {
-    return res.json({})
+  async createdRoles (req: Request, res: Response, Next: NextFunction): Promise<any> {
+    const result = await this.caseUseCreatedRole.createRule(req.body)
+
+    if (!result.success) {
+      const error = {
+        statusCode: result.status,
+        value: result.error
+      }
+      return Next(error)
+    }
+
+    return res.json({ message: result.value }).status(result.status)
+  }
+
+  async findsRoles (req: Request, res: Response, Next: NextFunction): Promise<any> {
+    const result = await this.caseUseFinds.findRule()
+
+    if (!result.success) {
+      const error = {
+        statusCode: result.status,
+        value: result.error
+      }
+      return Next(error)
+    }
+
+    return res.json({ message: result.value }).status(result.status)
+  }
+
+  async findsByIdRoles (req: Request, res: Response, Next: NextFunction): Promise<any> {
+    const idTheRole = req.params.id
+    const result = await this.caseUseFindById.findByIdRole(idTheRole)
+
+    if (!result.success) {
+      const error = {
+        statusCode: result.status,
+        value: result.error
+      }
+      return Next(error)
+    }
+
+    return res.json({ message: result.value }).status(result.status)
+  }
+
+  async Update (req: Request, res: Response, Next: NextFunction): Promise<any> {
+
+  }
+
+  async delete (req: Request, res: Response, Next: NextFunction): Promise<any> {
+
+  }
+
+  async accountRoles (req: Request, res: Response, Next: NextFunction): Promise<any> {
+
   }
 }

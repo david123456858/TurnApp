@@ -10,6 +10,8 @@ export const convertInfoUsers = (users: Users[]): any => {
     user.nameCompany = elements.nameCompany
     user.nit = elements.nit
     user.numberPhone = elements.numberPhone
+    user.roles = elements.roles
+    user.schedules = elements.schedules
 
     classConverted.push(user)
   })

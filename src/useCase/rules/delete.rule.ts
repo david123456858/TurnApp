@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 import { IFailureProcess, ISuccessProcess } from '../../adapters/interface/results/restults'
 import { FailureProccess, SuccessProcess } from '../../adapters/utils/result/resultApi'
@@ -11,6 +12,13 @@ export class caseUseDeletedRole {
 
   async deleteRule (data: string): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
     try {
+      if (data === null) return FailureProccess('Inprocessible entity', 422)
+
+      if (data === undefined) return FailureProccess('Inprocessible entity', 422)
+
+      const finds = await this.repositoryRules.findById(data)
+
+      if (!finds) return FailureProccess('Role dont exist', 404)
       // logica crear role
       const ruleDeleted = await this.repositoryRules.delete(data)
 
