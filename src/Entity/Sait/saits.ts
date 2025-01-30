@@ -1,5 +1,6 @@
-import { BaseEntity, Column, Entity, ManyToOne, PrimaryColumn } from 'typeorm'
+import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryColumn } from 'typeorm'
 import { Users } from '../Users/users'
+import { Employes } from '../Employes/employes'
 
 @Entity('Saits')
 export class Saits extends BaseEntity {
@@ -17,5 +18,8 @@ export class Saits extends BaseEntity {
 
   @ManyToOne(() => Users, (user: Users) => user.saits)
     company!: Users
-  // relacion con la compañia correspondienteS
+
+  // Una sede tiene muchos empleados
+  @OneToMany(() => Employes, (employes: Employes) => employes.saits)
+    employes!: Employes[]
 }
