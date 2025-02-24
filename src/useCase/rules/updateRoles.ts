@@ -11,7 +11,7 @@ export class caseUseUpdateRoles {
     this.repositoryRules = respositoy
   }
 
-  async findRule (roleUpdate: UpdateRolDto): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
+  async updateRule (roleUpdate: UpdateRolDto): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
     try {
       const roleFind = await this.repositoryRules.findByNameRule(roleUpdate.nameRule)
       // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
