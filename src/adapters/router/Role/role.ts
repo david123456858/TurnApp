@@ -14,7 +14,10 @@ import { registerRuleDto } from '../../../Dtos/rules/registerDtoRules'
 export const routeRoles = (): Router => {
   const repositoryRoles = new repositoryRules()
   const repository = new repositoryUser()
-
+  /**
+   * recordatorio de empezar a entender el concepto de inyeccion de dependencias
+   * y como podemos asegurarnos que cargue los controlladores correctamente
+   */
   const caseUseSaveRole = new caseUseCreated(repositoryRoles, repository)
   const caseUseDeleted = new caseUseDeletedRole(repositoryRoles)
   const caseUseFindsRols = new caseUseFindsRoles(repositoryRoles)
