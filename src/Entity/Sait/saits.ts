@@ -14,7 +14,7 @@ export class Saits extends BaseEntity {
     address!: string
 
   @Column({ type: 'numeric' })
-    numberEmployesForDay!: number
+    numberEmployesForDay!: number // revisar porque no hay contexto de que rol de empleado se necesita
 
   @ManyToOne(() => Users, (user: Users) => user.saits)
     company!: Users
