@@ -12,6 +12,7 @@ import { Employes } from '../../Entity/Employes/employes'
 
 config()
 
+// Estudiar el pastron de diseño singleton
 export class DataBase {
   private static _intance: DataBase
 
@@ -22,7 +23,7 @@ export class DataBase {
     this.appDataSource = new DataSource({
       type: 'postgres',
       host: PGHOST,
-      port: 5432,
+      port: 5432 /* Investigar sobre como colocar una variable de entorno como numero */,
       password: PGPASSWORD,
       database: PGDATABASE,
       username: PGUSER,
