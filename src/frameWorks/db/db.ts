@@ -19,7 +19,7 @@ export class DataBase {
   private readonly appDataSource: DataSource
 
   constructor () {
-    const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env
+    const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env // destrucuracion buen detalle
     this.appDataSource = new DataSource({
       type: 'postgres',
       host: PGHOST,
