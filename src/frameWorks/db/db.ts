@@ -12,7 +12,7 @@ import { Employes } from '../../Entity/Employes/employes'
 
 config()
 
-// Estudiar el pastron de diseño singleton
+// Estudiar el patron de diseño singleton
 export class DataBase {
   private static _intance: DataBase
 

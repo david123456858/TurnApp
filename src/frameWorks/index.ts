@@ -40,8 +40,8 @@ app.use(routeRoles())
 
 app.disable('x-powered-by')
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Bienvenido a la cosota que voy a realizar')
+app.get('/ping', (req: Request, res: Response) => {
+  res.send('pong')
 })
 
 app.listen(port, () => {

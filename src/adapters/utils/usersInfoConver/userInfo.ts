@@ -18,6 +18,7 @@ export const convertInfoUsers = (users: Users[]): any => {
 
   return classConverted
 }
+// mejorable
 export const convertInfoUser = (users: Users): any => {
   const user = new userInfo()
   user.email = users.email
