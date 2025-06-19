@@ -1,30 +1,30 @@
-import { userInfo } from '../../../Dtos/users/userInfo'
-import { Users } from '../../../Entity/Users/users'
+// import { userInfo } from '../../../Dtos/users/userInfo'
+// import { Users } from '../../../Entity/Users/users'
+// quedo sin utilizar codigo modular innecesario
+// export const convertInfoUsers = (users: Users[]): any => {
+//   const classConverted: any = []
 
-export const convertInfoUsers = (users: Users[]): any => {
-  const classConverted: any = []
+//   users.forEach(elements => {
+//     const user = new userInfo()
+//     user.email = elements.email
+//     user.nameCompany = elements.nameCompany
+//     user.nit = elements.nit
+//     user.numberPhone = elements.numberPhone
+//     user.roles = elements.roles
+//     user.schedules = elements.schedules
 
-  users.forEach(elements => {
-    const user = new userInfo()
-    user.email = elements.email
-    user.nameCompany = elements.nameCompany
-    user.nit = elements.nit
-    user.numberPhone = elements.numberPhone
-    user.roles = elements.roles
-    user.schedules = elements.schedules
+//     classConverted.push(user)
+//   })
 
-    classConverted.push(user)
-  })
+//   return classConverted
+// }
+// // mejorable
+// export const convertInfoUser = (users: Users): any => {
+//   const user = new userInfo()
+//   user.email = users.email
+//   user.nameCompany = users.nameCompany
+//   user.nit = users.nit
+//   user.numberPhone = users.numberPhone
 
-  return classConverted
-}
-// mejorable
-export const convertInfoUser = (users: Users): any => {
-  const user = new userInfo()
-  user.email = users.email
-  user.nameCompany = users.nameCompany
-  user.nit = users.nit
-  user.numberPhone = users.numberPhone
-
-  return user
-}
+//   return user
+// }

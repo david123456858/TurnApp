@@ -20,17 +20,17 @@ export class repositoryUser implements IcrudRepository<Users> {
     return resultRemoveUser
   }
 
-  async findById (email: string): Promise<any> {
+  async findById (email: string): Promise<Users | null> {
     const dataUser = await Users.findOne({ where: { email }, relations: { roles: true, saits: true, schedules: true } })
     return dataUser
   }
 
-  async findAll (): Promise<any> {
+  async findAll (): Promise<Users[]> {
     const dataUsers = await Users.find({ relations: { roles: true } })
     return dataUsers
   }
 
-  async findByEmail (emailSend: string): Promise<any> {
+  async findByEmail (emailSend: string): Promise<Users | null> {
     const dataUser = await Users.findOneBy({ email: emailSend })
     return dataUser
   }
