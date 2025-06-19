@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-invalid-void-type */
 import { IcrudRepository } from '../../adapters/interface/repository/crudRepository'
 import { Schedules } from '../../Entity/Schedules/schedules'
 
@@ -6,12 +7,19 @@ export class repositorySchedule implements IcrudRepository<Schedules> {
     console.log('')
   }
 
-  update (data: Schedules): Promise<Schedules | Error>{ 
-
+  async update (data: Schedules): Promise<Schedules | Error> {
+    return await new Promise(() => new Schedules())
   }
-  delete (id: string): Promise<Schedules | Error>{}
-  findById (id: string): Promise<Schedules | Error | null>{}
-  findAll (): Promise<Schedules | Error | null>{
 
+  async delete (id: string): Promise<Schedules | Error> {
+    return await new Promise(() => new Schedules())
   }
-|
+
+  async findById (id: string): Promise<Schedules | Error | null> {
+    return await new Promise(() => new Schedules())
+  }
+
+  async findAll (): Promise<Schedules[]> {
+    return await new Promise(() => new Schedules())
+  }
+}

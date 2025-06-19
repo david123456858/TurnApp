@@ -1,9 +1,9 @@
-import { BaseEntity, Entity, ManyToOne, PrimaryColumn } from 'typeorm'
+import { BaseEntity, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 import { Users } from '../Users/users'
 
 @Entity('shedules')
 export class Schedules extends BaseEntity {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
     idShedules!: string
 
   @ManyToOne(() => Users, (user: Users) => user.schedules)

@@ -1,9 +1,9 @@
-import { BaseEntity, Column, Entity, ManyToOne, PrimaryColumn } from 'typeorm'
+import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 import { Users } from '../Users/users'
 
 @Entity('Roles')
 export class Roles extends BaseEntity {
-  @PrimaryColumn('varchar')
+  @PrimaryGeneratedColumn()
     idRole!: string
 
   @Column({ type: 'varchar' })
