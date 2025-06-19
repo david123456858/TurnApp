@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-invalid-void-type */
 import { IsearchRepository } from './searcRepository'
 
 export interface IcrudRepository<T> extends IsearchRepository<T> {
