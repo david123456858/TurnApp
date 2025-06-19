@@ -16,10 +16,12 @@ export class RepositorySaits implements IcrudRepository<Saits> {
   }
 
   async findById (id: string): Promise<Saits | Error | null> {
-    return null
+    const saitSearch = await Saits.findOne({ where: { idSaits: id }, relations: {} })
+    return saitSearch
   }
 
-  async findAll (): Promise<Saits | Error | null> {
-    return null
+  async findAll (): Promise<Saits[]> {
+    const saits = await Saits.find()
+    return saits
   }
 }
