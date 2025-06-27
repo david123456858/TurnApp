@@ -4,11 +4,13 @@ import { Saits } from '../../Entity/Sait/saits'
 
 export class RepositorySaits implements IcrudRepository<Saits> {
   async save (data: Saits): Promise<void | Error> {
-    console.log('s')
+    await Saits.save(data)
   }
 
   async update (data: Saits): Promise<Saits | Error> {
-    return new Saits()
+    await Saits.findOneBy({ idSaits: data.idSaits })
+    const saitUpdate = await Saits.save(data)
+    return saitUpdate
   }
 
   async delete (id: string): Promise<Saits | Error> {
