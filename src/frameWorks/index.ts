@@ -3,10 +3,11 @@ import morgan from 'morgan'
 import cors from 'cors'
 import { config } from 'dotenv'
 
-import { DataBase } from './db/db'
-import { routerAuth } from '../adapters/router/Auth/auth'
-import { routeUser } from '../adapters/router/users/userRoute'
-import { routeRoles } from '../adapters/router/Role/role'
+import { DataBase } from '@framework/db/db'
+
+import { routerAuth } from '@routes/Auth/auth'
+import { routeUser } from '@routes/users/userRoute'
+import { routeRoles } from '@routes/Role/role'
 
 config()
 
