@@ -1,8 +1,8 @@
 import bcryptjs from 'bcryptjs'
-import { IFailureProcess, ISuccessProcess } from '../../adapters/interface/results/restults'
-import { FailureProccess, SuccessProcess } from '../../adapters/utils/result/resultApi'
-import { logginDto } from '../../Dtos/auth/logginDtos'
-import { repositoryUser } from '../../repository/user/repository.user'
+import { IFailureProcess, ISuccessProcess } from '@interface/results/restults'
+import { FailureProccess, SuccessProcess } from '@utils/result/resultApi'
+import { logginDto } from '@Dtos/auth/logginDtos'
+import { repositoryUser } from '@repository/user/repository.user'
 
 export class caseUserLoggin {
   private readonly repostitory: repositoryUser

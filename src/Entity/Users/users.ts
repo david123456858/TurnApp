@@ -1,8 +1,8 @@
 import { Entity, Column, PrimaryColumn, BaseEntity, OneToMany } from 'typeorm'
 
-import { Roles } from '../Role/roles'
-import { Saits } from '../Sait/saits'
-import { Schedules } from '../Schedules/schedules'
+import { Roles } from '@Entity/Role/roles'
+import { Saits } from '@Entity/Sait/saits'
+import { Schedules } from '@Entity/Schedules/schedules'
 
 @Entity('Companys')
 export class Users extends BaseEntity {

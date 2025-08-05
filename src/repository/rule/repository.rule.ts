@@ -1,5 +1,5 @@
-import { IcrudRepository } from '../../adapters/interface/repository/crudRepository'
-import { Roles } from '../../Entity/Role/roles'
+import { IcrudRepository } from '@interface/repository/crudRepository'
+import { Roles } from '@Entity/Role/roles'
 
 // --> este es model pero llamado como repository simplemente se cambia la denominacion sefun la arquitectura
 export class repositoryRules implements IcrudRepository<Roles> {
@@ -29,8 +29,8 @@ export class repositoryRules implements IcrudRepository<Roles> {
   }
 
   async findByNameRule (data: string): Promise<Roles | null> {
-    const findByNameRole = Roles.findOneBy({ nameRole: data })
-    return await findByNameRole
+    const findByNameRole = await Roles.findOneBy({ nameRole: data })
+    return findByNameRole
   }
 
   async countRoles (): Promise<number> {

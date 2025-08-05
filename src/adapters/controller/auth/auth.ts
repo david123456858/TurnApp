@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { NextFunction, Request, Response } from 'express'
-import { caseUseRegister } from '../../../useCase/Auth/register'
-import { registerDto } from '../../../Dtos/auth/registerDtos'
-import { logginDto } from '../../../Dtos/auth/logginDtos'
-import { caseUserLoggin } from '../../../useCase/Auth/login'
+import { caseUseRegister } from '@useCase/Auth/register'
+import { registerDto } from '@Dtos/auth/registerDtos'
+import { logginDto } from '@Dtos/auth/logginDtos'
+import { caseUserLoggin } from '@useCase/Auth/login'
 
 export class AuthController {
   caseUseRegister: caseUseRegister
