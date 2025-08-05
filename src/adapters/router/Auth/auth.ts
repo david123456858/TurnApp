@@ -1,12 +1,12 @@
 import { Router } from 'express'
-import { baseRoute, router } from '../../config/routerConfig'
-import { AuthController } from '../../controller/auth/auth'
-import { caseUseRegister } from '../../../useCase/Auth/register'
-import { repositoryUser } from '../../../repository/user/repository.user'
-import { validateDtos } from '../../middleware/validate'
-import { registerDto } from '../../../Dtos/auth/registerDtos'
-import { logginDto } from '../../../Dtos/auth/logginDtos'
-import { caseUserLoggin } from '../../../useCase/Auth/login'
+import { baseRoute, router } from '@config/routerConfig'
+import { AuthController } from '@controller/auth/auth'
+import { caseUseRegister } from '@useCase/Auth/register'
+import { repositoryUser } from '@repository/user/repository.user'
+import { validateDtos } from '@middleware/validate'
+import { registerDto } from '@Dtos/auth/registerDtos'
+import { logginDto } from '@Dtos/auth/logginDtos'
+import { caseUserLoggin } from '@useCase/Auth/login'
 
 export const routerAuth = (): Router => {
   const repostitory = new repositoryUser()
