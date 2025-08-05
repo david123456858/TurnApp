@@ -34,7 +34,7 @@
       "@controller/*":["./src/adapters/controller/*"],
       "@caseUse":["./src/useCase/*"],
       "@Entity/*":["./src/Entity/*"],
-      "@dtos/*":["./src/Dtos*"],
+      "@Dtos/*":["./src/Dtos/*"],
       "@adapters/*":["./src/adapters/*"],
       "@interface/*":["./src/adapters/interface/*"],
       "@middleware/*":["./src/adapters/middleware/*"],

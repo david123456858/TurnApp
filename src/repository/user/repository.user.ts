@@ -1,6 +1,6 @@
 // import userModel from '../../adapters/models/repository/users/user'
-import { Users } from '../../Entity/Users/users'
-import { IcrudRepository } from './../../adapters/interface/repository/crudRepository'
+import { Users } from '@Entity/Users/users'
+import { IcrudRepository } from '@adapters/interface/repository/crudRepository'
 
 export class repositoryUser implements IcrudRepository<Users> {
   // esl int-disable-next-line @typescript-eslint/no-invalid-void-type

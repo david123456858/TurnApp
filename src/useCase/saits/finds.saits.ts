@@ -1,5 +1,5 @@
-import { IFailureProcess, ISuccessProcess } from '../../adapters/interface/results/restults'
-import { FailureProccess, SuccessProcess } from '../../adapters/utils/result/resultApi'
+import { IFailureProcess, ISuccessProcess } from '@adapters/interface/results/restults'
+import { FailureProccess, SuccessProcess } from '@adapters/utils/result/resultApi'
 /**
  * Case use for the funtions the find all saits wich it campany comrresponset
  * En palabras españolas metodo que realiza las busquedas de las sedes de la empresa

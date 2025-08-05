@@ -1,8 +1,8 @@
-import { IFailureProcess, ISuccessProcess } from '../../adapters/interface/results/restults'
-import { FailureProccess, SuccessProcess } from '../../adapters/utils/result/resultApi'
-import { Users } from '../../Entity/Users/users'
-import { registerDto } from '../../Dtos/auth/registerDtos'
-import { repositoryUser } from '../../repository/user/repository.user'
+import { IFailureProcess, ISuccessProcess } from '@interface/results/restults'
+import { FailureProccess, SuccessProcess } from '@utils/result/resultApi'
+import { Users } from '@Entity/Users/users'
+import { registerDto } from '@Dtos/auth/registerDtos'
+import { repositoryUser } from '@repository/user/repository.user'
 import bcryptjs from 'bcryptjs'
 
 export class caseUseRegister {

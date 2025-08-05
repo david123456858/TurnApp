@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-invalid-void-type */
-import { IcrudRepository } from '../../adapters/interface/repository/crudRepository'
-import { Schedules } from '../../Entity/Schedules/schedules'
+import { IcrudRepository } from '@adapters/interface/repository/crudRepository'
+import { Schedules } from '@Entity/Schedules/schedules'
 
 export class repositorySchedule implements IcrudRepository<Schedules> {
   async save (data: Schedules): Promise<void | Error> {

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import { IFailureProcess, ISuccessProcess } from '../../adapters/interface/results/restults'
-import { FailureProccess, SuccessProcess } from '../../adapters/utils/result/resultApi'
-import { Roles } from '../../Entity/Role/roles'
-import { registerRuleDto } from '../../Dtos/rules/registerDtoRules'
-import { repositoryRules } from '../../repository/rule/repository.rule'
-import { repositoryUser } from '../../repository/user/repository.user'
+import { IFailureProcess, ISuccessProcess } from '@interface/results/restults'
+import { FailureProccess, SuccessProcess } from '@utils/result/resultApi'
+import { Roles } from '@Entity/Role/roles'
+import { registerRuleDto } from '@Dtos/rules/registerDtoRules'
+import { repositoryRules } from '@repository/rule/repository.rule'
+import { repositoryUser } from '@repository/user/repository.user'
 
 export class caseUseCreated {
   private readonly repositoryRules: repositoryRules
