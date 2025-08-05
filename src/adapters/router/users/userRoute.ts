@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { Router } from 'express'
-import { repositoryUser } from '../../../repository/user/repository.user'
-import { CaseUseDeleteUser } from '../../../useCase/users/user.delete'
-import { CaseUseFindUsers } from '../../../useCase/users/user.find'
-import { baseRoute, router } from '../../config/routerConfig'
-import { controllerUserCrud } from '../../controller/user/userController'
-import { CaseUseUpdateUser } from '../../../useCase/users/user.update'
-import { caseUseFindByEmail } from '../../../useCase/users/user.findById'
-import { validateDtos } from '../../middleware/validate'
-import { updateUserDto } from '../../../Dtos/users/userUpdateDto'
+import { repositoryUser } from '@repository/user/repository.user'
+import { CaseUseDeleteUser } from '@useCase/users/user.delete'
+import { CaseUseFindUsers } from '@useCase/users/user.find'
+import { baseRoute, router } from '@config/routerConfig'
+import { controllerUserCrud } from '@controller/user/userController'
+import { CaseUseUpdateUser } from '@useCase/users/user.update'
+import { caseUseFindByEmail } from '@useCase/users/user.findById'
+import { validateDtos } from '@middleware/validate'
+import { updateUserDto } from '@Dtos/users/userUpdateDto'
 
 export const routeUser = (): Router => {
   const respository = new repositoryUser()

@@ -1,5 +1,5 @@
 import { NextFunction } from 'express'
-import { CaseUseCreateSait } from '../../../useCase/saits/create.sait'
+import { CaseUseCreateSait } from '@useCase/saits/create.sait'
 
 export class ControllerSaits {
   private readonly caseUseCreate: CaseUseCreateSait
