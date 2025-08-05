@@ -1,5 +1,5 @@
 import { BaseEntity, Column, Entity, ManyToOne, PrimaryColumn } from 'typeorm'
-import { Saits } from '../Sait/saits'
+import { Saits } from '@Entity/Sait/saits'
 
 @Entity('Employes')
 export class Employes extends BaseEntity {

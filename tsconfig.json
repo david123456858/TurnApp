@@ -32,7 +32,7 @@
     "paths": {
       "@routes/*":["./src/adapters/router/*"],
       "@controller/*":["./src/adapters/controller/*"],
-      "@caseUse":["./src/useCase/*"],
+      "@useCase/*":["./src/useCase/*"],
       "@Entity/*":["./src/Entity/*"],
       "@Dtos/*":["./src/Dtos/*"],
       "@adapters/*":["./src/adapters/*"],
