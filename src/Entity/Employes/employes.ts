@@ -3,6 +3,7 @@ import { Saits } from '@Entity/Sait/saits'
 
 @Entity('Employes')
 export class Employes extends BaseEntity {
+  // indexar los atributos necesarios e implementar eliminacion por bloque
   @PrimaryColumn()
     idEmploye!: string
 
