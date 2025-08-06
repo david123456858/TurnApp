@@ -1,6 +1,6 @@
 import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
-import { Users } from '../Users/users'
-import { Employes } from '../Employes/employes'
+import { Users } from '@Entity/Users/users'
+import { Employes } from '@Entity/Employes/employes'
 
 @Entity('Saits')
 export class Saits extends BaseEntity {

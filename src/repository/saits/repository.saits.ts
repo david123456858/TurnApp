@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-invalid-void-type */
-import { IcrudRepository } from '../../adapters/interface/repository/crudRepository'
-import { Saits } from '../../Entity/Sait/saits'
+import { IcrudRepository } from '@interface/repository/crudRepository'
+import { Saits } from '@Entity/Sait/saits'
 
 export class RepositorySaits implements IcrudRepository<Saits> {
   async save (data: Saits): Promise<void | Error> {

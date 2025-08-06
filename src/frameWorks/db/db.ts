@@ -4,11 +4,11 @@
 import { config } from 'dotenv'
 import { DataSource } from 'typeorm'
 
-import { Users } from '../../Entity/Users/users'
-import { Saits } from '../../Entity/Sait/saits'
-import { Schedules } from '../../Entity/Schedules/schedules'
-import { Roles } from '../../Entity/Role/roles'
-import { Employes } from '../../Entity/Employes/employes'
+import { Users } from '@Entity/Users/users'
+import { Saits } from '@Entity/Sait/saits'
+import { Schedules } from '@Entity/Schedules/schedules'
+import { Roles } from '@Entity/Role/roles'
+import { Employes } from '@Entity/Employes/employes'
 
 config()
 

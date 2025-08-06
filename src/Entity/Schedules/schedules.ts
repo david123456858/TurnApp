@@ -1,5 +1,5 @@
 import { BaseEntity, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
-import { Users } from '../Users/users'
+import { Users } from '@Entity/Users/users'
 
 @Entity('shedules')
 export class Schedules extends BaseEntity {

@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express'
-import { CaseUseDeleteUser } from '../../../useCase/users/user.delete'
-import { CaseUseUpdateUser } from '../../../useCase/users/user.update'
-import { CaseUseFindUsers } from '../../../useCase/users/user.find'
-import { caseUseFindByEmail } from '../../../useCase/users/user.findById'
+import { CaseUseDeleteUser } from '@useCase/users/user.delete'
+import { CaseUseUpdateUser } from '@useCase/users/user.update'
+import { CaseUseFindUsers } from '@useCase/users/user.find'
+import { caseUseFindByEmail } from '@useCase/users/user.findById'
 
 export class controllerUserCrud {
   caseUseUser: caseUseFindByEmail

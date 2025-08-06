@@ -1,6 +1,6 @@
-import { FailureProccess, SuccessProcess } from './../../adapters/utils/result/resultApi'
-import { repositoryUser } from '../../repository/user/repository.user'
-import { IFailureProcess, ISuccessProcess } from '../../adapters/interface/results/restults'
+import { FailureProccess, SuccessProcess } from '@adapters/utils/result/resultApi'
+import { repositoryUser } from '@repository/user/repository.user'
+import { IFailureProcess, ISuccessProcess } from '@adapters/interface/results/restults'
 
 export class CaseUseDeleteUser {
   private readonly repostitory: repositoryUser

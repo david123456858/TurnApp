@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { IFailureProcess, ISuccessProcess } from '../../adapters/interface/results/restults'
-import { FailureProccess, SuccessProcess } from '../../adapters/utils/result/resultApi'
-import { UpdateRolDto } from '../../Dtos/rules/UpdateRolesDto'
-import { Roles } from '../../Entity/Role/roles'
-import { repositoryRules } from '../../repository/rule/repository.rule'
+import { IFailureProcess, ISuccessProcess } from '@interface/results/restults'
+import { FailureProccess, SuccessProcess } from '@utils/result/resultApi'
+import { UpdateRolDto } from '@Dtos/rules/UpdateRolesDto'
+import { Roles } from '@Entity/Role/roles'
+import { repositoryRules } from '@repository/rule/repository.rule'
 
 export class caseUseUpdateRoles {
   private readonly repositoryRules: repositoryRules
