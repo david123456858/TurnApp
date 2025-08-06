@@ -18,4 +18,8 @@ export class Employes extends BaseEntity {
   // muchos empleados hace parte de una sede
   @ManyToOne(() => Saits, (saits: Saits) => saits.employes)
     saits!: Saits
+
+  // relacion entre los empleados y de que empresa son es decir: user -> employes
+
+  // relacion entre los empleados y sus respectivos roles: roles -> employes
 }
