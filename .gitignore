@@ -2,4 +2,5 @@ node_modules
 ./pnpm-lock-yaml
 ./src/build
 .env
+package-lock.json
 ./src/adapters/config/dbConfig.ts
