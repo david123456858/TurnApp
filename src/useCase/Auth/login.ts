@@ -22,6 +22,7 @@ export class caseUserLoggin {
 
       // eslint-disable-next-line @typescript-eslint/no-misused-promises, @typescript-eslint/strict-boolean-expressions
       if (!comparePassword) return FailureProccess('User Not found', 404)
+
       const { password, ...rest } = userLogged
 
       return SuccessProcess(rest, 200)

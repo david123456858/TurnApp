@@ -13,17 +13,19 @@ import { Employes } from '@Entity/Employes/employes'
 config()
 
 // Estudiar el patron de diseño singleton
+
+// ❌ Mala ubicacion de la configuracion de la base de datos revisar
 export class DataBase {
   private static _intance: DataBase
 
   private readonly appDataSource: DataSource
 
   constructor () {
-    const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env // destrucuracion buen detalle
+    const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, PORTBS } = process.env // destrucuracion buen detalle
     this.appDataSource = new DataSource({
       type: 'postgres',
       host: PGHOST,
-      port: 5432 /* Investigar sobre como colocar una variable de entorno como numero */,
+      port: parseInt(PORTBS as string)/* Investigar sobre como colocar una variable de entorno como numero */,
       password: PGPASSWORD,
       database: PGDATABASE,
       username: PGUSER,

@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
+import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, Index } from 'typeorm'
 import { Users } from '@Entity/Users/users'
 import { Employes } from '@Entity/Employes/employes'
 
@@ -7,6 +7,7 @@ export class Saits extends BaseEntity {
   @PrimaryGeneratedColumn()
     idSaits!: string
 
+  @Index()
   @Column({ type: 'varchar' })
     nameSait!: string
 
