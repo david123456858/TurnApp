@@ -1,3 +1,10 @@
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript)
+![Express.js](https://img.shields.io/badge/Express.js-000000?logo=express&logoColor=white)
+![TypeORM](https://img.shields.io/badge/TypeORM-313131?logo=typeorm)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?logo=node.js&logoColor=white)
+![Neo4j](https://img.shields.io/badge/Neo4j-0172B8?logo=neo4j&logoColor=white)
+
 # API Gateway
 
 ## 🚀 Descripción
@@ -9,6 +16,7 @@ API Gateway para el sistema TurnApp, implementando una arquitectura limpia con T
 - TypeORM
 - PostgreSQL
 - Node.js
+- Neon4j
 
 ## 🏗 Arquitectura
 El proyecto sigue los principios de Clean Architecture:
