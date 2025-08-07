@@ -3,6 +3,7 @@ import { Entity, Column, PrimaryColumn, BaseEntity, OneToMany } from 'typeorm'
 import { Roles } from '@Entity/Role/roles'
 import { Saits } from '@Entity/Sait/saits'
 import { Schedules } from '@Entity/Schedules/schedules'
+import { Employes } from '@Entity/Employes/employes'
 
 @Entity('Companys')
 export class Users extends BaseEntity {
@@ -29,4 +30,8 @@ export class Users extends BaseEntity {
 
   @OneToMany(() => Schedules, (schedules: Schedules) => schedules.company)
     schedules!: Schedules[]
+  
+  @OneToMany(() => Employes, (employes:Employes) => employes.company)
+  employes!: Employes[] 
+  
 }

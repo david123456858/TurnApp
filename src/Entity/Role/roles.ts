@@ -1,5 +1,6 @@
-import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn, OneToMany } from 'typeorm'
 import { Users } from '@Entity/Users/users'
+import { Employes } from '@Entity/Employes/employes'
 
 @Entity('Roles')
 export class Roles extends BaseEntity {
@@ -15,4 +16,8 @@ export class Roles extends BaseEntity {
   // relacion a que compañia pertenece este rol
   @ManyToOne(() => Users, (user: Users) => user.roles)
     company!: Users
+
+  // relacion entre los roles y los empleados que tienen este rol
+  @OneToMany(() => Employes, (employes: Employes) => employes.roles)
+    employes!: Employes[]
 }

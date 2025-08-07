@@ -23,3 +23,4 @@ export class Saits extends BaseEntity {
   @OneToMany(() => Employes, (employes: Employes) => employes.saits)
     employes!: Employes[]
 }
+ 

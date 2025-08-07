@@ -15,8 +15,8 @@ export class repositoryUser implements IcrudRepository<Users> {
     return result
   }
 
-  async delete (id: string): Promise<any> {
-    const resultRemoveUser = await Users.delete({ email: id })
+  async delete (email: string): Promise<any> {
+    const resultRemoveUser = await Users.delete({ email: email })
     return resultRemoveUser
   }
 

@@ -1,5 +1,7 @@
 import { BaseEntity, Column, Entity, ManyToOne, PrimaryColumn } from 'typeorm'
 import { Saits } from '@Entity/Sait/saits'
+import { Users } from '@Entity/Users/users'
+import { Roles } from '@Entity/Role/roles'
 
 @Entity('Employes')
 export class Employes extends BaseEntity {
@@ -22,5 +24,11 @@ export class Employes extends BaseEntity {
 
   // relacion entre los empleados y de que empresa son es decir: user -> employes
 
+  @ManyToOne(() => Users, (users: Users) => users.employes)
+  company!: Users
+
   // relacion entre los empleados y sus respectivos roles: roles -> employes
+
+  @ManyToOne(() => Roles, (roles: Roles) => roles.employes)
+  roles!: Roles
 }
