@@ -21,6 +21,11 @@ export class caseUseFindByEmail {
       if (!userFind) return FailureProccess('user dont exist', 404)
 
       const { password, ...rest } = userFind
+      /**
+       * password es la variables que queremos ignorar
+       * ...rest es el resto del objeto que queremos dejar
+       * userFind es de donde tenemos todo el objeto
+       */
 
       return SuccessProcess(rest, 200)
     } catch (error) {

@@ -9,6 +9,7 @@ export class AuthController {
   caseUseRegister: caseUseRegister
   caseUseLoggin: caseUserLoggin
 
+  // revisar contexto del this entendiendo pero todavia falta
   constructor (caseUse: caseUseRegister, caseLoggin: caseUserLoggin) {
     this.caseUseRegister = caseUse
     this.caseUseLoggin = caseLoggin

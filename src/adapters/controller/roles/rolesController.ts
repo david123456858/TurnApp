@@ -11,6 +11,7 @@ export class controllerRoles {
   private readonly caseUseFinds: caseUseFindsRoles
   private readonly caseUseFindById: CaseUseFindById
 
+  // aplicar patron builder
   constructor (caseUseCreatedRole: caseUseCreated, caseUseDeleteRoles: caseUseDeletedRole, caseUseFinds: caseUseFindsRoles, caseUseFindById: CaseUseFindById) {
     this.caseUseCreatedRole = caseUseCreatedRole
     this.caseUseDeleteRoles = caseUseDeleteRoles
