@@ -23,10 +23,10 @@ export class caseUseRegister {
 
       const userSave = new Users()
 
-      userSave.nit = user.nit
-      userSave.email = user.email
-      userSave.nameCompany = user.nameCompany
-      userSave.numberPhone = user.numberPhone
+      userSave.nit = user.nit // hashear
+      userSave.email = user.email // hashear
+      userSave.nameCompany = user.nameCompany // hashear
+      userSave.numberPhone = user.numberPhone // hashear
       userSave.password = hash
 
       await this.repository.save(userSave)

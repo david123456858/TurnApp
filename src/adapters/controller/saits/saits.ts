@@ -1,4 +1,4 @@
-import { NextFunction } from 'express'
+import { NextFunction, Request, Response } from 'express'
 import { CaseUseCreateSait } from '@useCase/saits/create.sait'
 
 export class ControllerSaits {
@@ -11,7 +11,16 @@ export class ControllerSaits {
   }
 
   async createSait (req: Request, res: Response, Next: NextFunction): Promise<any> {
+    const result = await this.caseUseCreate.createSait(req.body)
 
+    if (!result.success) {
+      const error = {
+        statusCode: result.status,
+        value: result.error
+      }
+      return Next(error)
+    }
+    return res.json({ message: result.value }).status(result.status)
   }
 
   async getSaits (req: Request, res: Response, Next: NextFunction): Promise<any> {
