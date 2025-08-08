@@ -4,7 +4,7 @@ import { FailureProccess, SuccessProcess } from '@adapters/utils/result/resultAp
 export class CaseUseDeleteSait {
   async deleteSait (id: string): Promise<ISuccessProcess<any> | IFailureProcess<any> > {
     try {
-      return SuccessProcess('the saits has deleted successfuly', 200)
+      return SuccessProcess('the saits has deleted successfuly', 201)
     } catch (error) {
       return FailureProccess('error internar server', 500)
     }

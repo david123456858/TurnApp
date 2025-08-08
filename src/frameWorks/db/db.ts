@@ -9,6 +9,7 @@ import { Saits } from '@Entity/Sait/saits'
 import { Schedules } from '@Entity/Schedules/schedules'
 import { Roles } from '@Entity/Role/roles'
 import { Employes } from '@Entity/Employes/employes'
+import { SaitRol } from '@Entity/Sait_Rol/Sait_rol'
 
 config()
 
@@ -25,11 +26,11 @@ export class DataBase {
     this.appDataSource = new DataSource({
       type: 'postgres',
       host: PGHOST,
-      port: parseInt(PORTBS as string)/* Investigar sobre como colocar una variable de entorno como numero */,
+      port: parseInt(PORTBS as string),
       password: PGPASSWORD,
       database: PGDATABASE,
       username: PGUSER,
-      entities: [Users, Roles, Saits, Schedules, Employes],
+      entities: [Users, Roles, Saits, Schedules, Employes, SaitRol],
       synchronize: true,
       logging: true,
       ssl: { rejectUnauthorized: false }

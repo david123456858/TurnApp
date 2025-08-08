@@ -17,7 +17,7 @@ export class CaseUseDeleteUser {
 
       await this.repostitory.delete(idUser)
 
-      return SuccessProcess('User deleted', 200)
+      return SuccessProcess('User deleted', 204)
     } catch (error) {
       return FailureProccess('Error internar server', 500)
     }

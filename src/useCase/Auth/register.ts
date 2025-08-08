@@ -30,7 +30,7 @@ export class caseUseRegister {
       userSave.password = hash
 
       await this.repository.save(userSave)
-      return SuccessProcess('created user', 200)
+      return SuccessProcess('created user', 201)
     } catch (error) {
       return FailureProccess('Algo sucedio con esto', 500)
     }

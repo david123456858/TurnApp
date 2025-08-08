@@ -1,6 +1,8 @@
 import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, Index } from 'typeorm'
-import { Users } from '@Entity/Users/users'
+
 import { Employes } from '@Entity/Employes/employes'
+import { SaitRol } from '@Entity/Sait_Rol/Sait_rol'
+import { Users } from '@Entity/Users/users'
 
 @Entity('Saits')
 export class Saits extends BaseEntity {
@@ -12,6 +14,9 @@ export class Saits extends BaseEntity {
     nameSait!: string
 
   @Column({ type: 'varchar' })
+    city!: string
+
+  @Column({ type: 'varchar' })
     address!: string
 
   @Column({ type: 'numeric' })
@@ -19,6 +24,9 @@ export class Saits extends BaseEntity {
 
   @ManyToOne(() => Users, (user: Users) => user.saits)
     company!: Users
+
+  @ManyToOne(() => SaitRol, (saitRol: SaitRol) => saitRol.saits)
+    rolNecesary!: SaitRol
 
   // Una sede tiene muchos empleados
   @OneToMany(() => Employes, (employes: Employes) => employes.saits)
