@@ -1,9 +1,9 @@
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript)
-![Express.js](https://img.shields.io/badge/Express.js-000000?logo=express&logoColor=white)
-![TypeORM](https://img.shields.io/badge/TypeORM-313131?logo=typeorm)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-43853D?logo=node.js&logoColor=white)
-![Neo4j](https://img.shields.io/badge/Neo4j-0172B8?logo=neo4j&logoColor=white)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![TypeORM](https://img.shields.io/badge/TypeORM-313131?style=for-the-badge&logo=typeorm&logoColor=white)](https://typeorm.io/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Neo4j](https://img.shields.io/badge/Neo4j-0172B8?style=for-the-badge&logo=neo4j&logoColor=white)](https://neo4j.com/)
 
 # API Gateway
 
