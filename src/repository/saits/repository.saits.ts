@@ -9,22 +9,18 @@ export class RepositorySaits implements IcrudRepository<Saits> {
 
   async update (data: Saits): Promise<any> {
     const { idSaits, ...sait } = data
-    const udpateSait = await Saits.update({ idSaits }, sait)
-    return udpateSait
+    return await Saits.update({ idSaits }, sait)
   }
 
   async delete (id: string): Promise<any> {
-    const saitDeleted = await Saits.delete({ idSaits: id })
-    return saitDeleted
+    return await Saits.delete({ idSaits: id })
   }
 
   async findById (id: string): Promise<Saits | Error | null> {
-    const saitSearch = await Saits.findOne({ where: { idSaits: id }, relations: {} })
-    return saitSearch
+    return await Saits.findOne({ where: { idSaits: id }, relations: {} })
   }
 
   async findAll (): Promise<Saits[]> {
-    const saits = await Saits.find()
-    return saits
+    return await Saits.find()
   }
 }

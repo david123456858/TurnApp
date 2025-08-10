@@ -15,6 +15,7 @@ export class CaseUseDeleteSait {
 
       const findSait = await this.repository.findById(id)
       if (!findSait) return FailureProccess('Sait not Found', 404)
+
       await this.repository.delete(id)
 
       return SuccessProcess('the saits has deleted successfuly', 204)
