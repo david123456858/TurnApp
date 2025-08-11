@@ -1,5 +1,7 @@
 import { IcrudRepository } from '@interface/repository/crudRepository'
 import { Roles } from '@Entity/Role/roles'
+// import { In } from 'typeorm'
+// import { CountRolesDto } from '@Dtos/saits/createDto'
 
 // --> este es model pero llamado como repository simplemente se cambia la denominacion sefun la arquitectura
 export class repositoryRules implements IcrudRepository<Roles> {
@@ -37,4 +39,8 @@ export class repositoryRules implements IcrudRepository<Roles> {
     const countTotal = await Roles.count()
     return countTotal
   }
+
+  // async findByBlock (vectorRol: CountRolesDto[]): Promise<any> {
+  //   const result = await Roles.find({ where: { idRole: In(vectorRol) } })
+  // }
 }

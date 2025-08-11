@@ -8,7 +8,7 @@ export class CaseUseUpdateSaits {
     this.repository = respository
   }
 
-  async updateSaits (dto: string): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
+  async updateSaits (dto: string): Promise<IFailureProcess<any> | ISuccessProcess<any> > {
     try {
       return SuccessProcess('', 200)
     } catch (error) {
