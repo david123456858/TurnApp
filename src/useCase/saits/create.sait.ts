@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @typescript-eslint/no-for-in-array */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { IFailureProcess, ISuccessProcess } from '@adapters/interface/results/restults'
 import { FailureProccess, SuccessProcess } from '@adapters/utils/result/resultApi'
 import { createSaitDto } from '@Dtos/saits/createDto'
 import { Saits } from '@Entity/Sait/saits'
+import { SaitRol } from '@Entity/Sait_Rol/Sait_rol'
 import { repositoryRules } from '@repository/rule/repository.rule'
 import { RepositorySaitRole } from '@repository/sait-role/sait-role'
 import { RepositorySaits } from '@repository/saits/repository.saits'
@@ -28,13 +30,6 @@ export class CaseUseCreateSait {
 
       if (!userFind) return FailureProccess('Not found', 404)
 
-      console.time('busqueda')
-      for (const value of sait.rols) {
-        const result = await this.repositoryRole.findById(value.rolId)
-        if (result) console.log('no existe este')
-      }
-      console.timeEnd('busqueda')
-
       const instanceOfSait = new Saits()
 
       instanceOfSait.company = userFind
@@ -44,6 +39,20 @@ export class CaseUseCreateSait {
       instanceOfSait.numberEmployesForDay = sait.numberEmployesForDay
 
       await this.repository.save(instanceOfSait)
+
+      const saitsSaved = await this.repository.findByName(sait.nameSait)
+      if (!saitsSaved) return FailureProccess('not found', 404)
+
+      console.time('busqueda')
+      for (const value of sait.rols) {
+        const result = await this.repositoryRole.findById(value.rolId)
+        const saitRolInstance = new SaitRol()
+        saitRolInstance.rol = result
+        saitRolInstance.saits = saitsSaved
+        saitRolInstance.numberRolNecessary = value.amount
+        await this.repositorySaitRole.save(saitRolInstance)
+      }
+      console.timeEnd('busqueda')
 
       return SuccessProcess('Site created successfully', 201)
     } catch (error) {

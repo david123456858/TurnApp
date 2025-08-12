@@ -39,8 +39,4 @@ export class repositoryRules implements IcrudRepository<Roles> {
     const countTotal = await Roles.count()
     return countTotal
   }
-
-  // async findByBlock (vectorRol: CountRolesDto[]): Promise<any> {
-  //   const result = await Roles.find({ where: { idRole: In(vectorRol) } })
-  // }
 }

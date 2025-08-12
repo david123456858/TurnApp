@@ -23,4 +23,8 @@ export class RepositorySaits implements IcrudRepository<Saits> {
   async findAll (): Promise<Saits[]> {
     return await Saits.find()
   }
+
+  async findByName (name: string): Promise<Saits | null> {
+    return await Saits.findOne({ where: { nameSait: name } })
+  }
 }

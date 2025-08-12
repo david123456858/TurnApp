@@ -1,17 +1,17 @@
 import { Type } from 'class-transformer'
-import { IsArray, IsEmpty, IsInt, IsString, Min, ValidateNested } from 'class-validator'
+import { IsArray, IsInt, IsNotEmpty, IsString, Min, ValidateNested } from 'class-validator'
 
 export class createSaitDto {
   @IsString()
-  @IsEmpty()
+  @IsNotEmpty()
     nameSait!: string
 
   @IsString()
-  @IsEmpty()
+  @IsNotEmpty()
     city!: string
 
   @IsString()
-  @IsEmpty()
+  @IsNotEmpty()
     address!: string
 
   @IsInt()
@@ -19,7 +19,7 @@ export class createSaitDto {
     numberEmployesForDay!: number
 
   @IsString()
-  @IsEmpty()
+  @IsNotEmpty()
     company!: string
 
   @IsArray()
@@ -30,6 +30,7 @@ export class createSaitDto {
 
 export class CountRolesDto {
   @IsString()
+  @IsNotEmpty()
     rolId!: string
 
   @IsInt()
