@@ -4,7 +4,7 @@ import { FailureProccess, SuccessProcess } from '@adapters/utils/result/resultAp
 export class caseUseCreateSchedule {
   async createSchedule (): Promise<ISuccessProcess<any> | IFailureProcess<any>> {
     try {
-      return SuccessProcess('', 200)
+      return SuccessProcess('', 201)
     } catch (error) {
       return FailureProccess('', 500)
     }

@@ -3,14 +3,14 @@ import { Router } from 'express'
 import { repositoryUser } from '@repository/user/repository.user'
 import { CaseUseDeleteUser } from '@useCase/users/user.delete'
 import { CaseUseFindUsers } from '@useCase/users/user.find'
-import { baseRoute, router } from '@config/routerConfig'
+import { router } from '@config/routerConfig'
 import { controllerUserCrud } from '@controller/user/userController'
 import { CaseUseUpdateUser } from '@useCase/users/user.update'
 import { caseUseFindByEmail } from '@useCase/users/user.findById'
 import { validateDtos } from '@middleware/validate'
 import { updateUserDto } from '@Dtos/users/userUpdateDto'
 
-export const routeUser = (): Router => {
+export const routeUser = (prefix: string): Router => {
   const respository = new repositoryUser()
 
   const caseUseUserDelete = new CaseUseDeleteUser(respository)
@@ -25,10 +25,10 @@ export const routeUser = (): Router => {
     caseUseUserFindByEmail
   )
 
-  router.get(`${baseRoute}/users`, controller.findUsers)
-  router.get(`${baseRoute}/user/:id`, controller.findById)
-  router.delete(`${baseRoute}/userDeleted/:id`, controller.userDelete)
-  router.put(`${baseRoute}/updateUser`, validateDtos(updateUserDto), controller.UpdateUser)
+  router.get(`${prefix}`, controller.findUsers)
+  router.get(`${prefix}/:id`, controller.findById)
+  router.delete(`${prefix}/:id`, controller.userDelete)
+  router.put(`${prefix}`, validateDtos(updateUserDto), controller.UpdateUser)
 
   return router
 }

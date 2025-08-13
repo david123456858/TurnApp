@@ -3,6 +3,7 @@ import { Saits } from '@Entity/Sait/saits'
 
 @Entity('Employes')
 export class Employes extends BaseEntity {
+  // indexar los atributos necesarios e implementar eliminacion por bloque
   @PrimaryColumn()
     idEmploye!: string
 
@@ -18,4 +19,8 @@ export class Employes extends BaseEntity {
   // muchos empleados hace parte de una sede
   @ManyToOne(() => Saits, (saits: Saits) => saits.employes)
     saits!: Saits
+
+  // relacion entre los empleados y de que empresa son es decir: user -> employes
+
+  // relacion entre los empleados y sus respectivos roles: roles -> employes
 }

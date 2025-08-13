@@ -1,14 +1,20 @@
-import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
-import { Users } from '@Entity/Users/users'
+import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, Index } from 'typeorm'
+
 import { Employes } from '@Entity/Employes/employes'
+import { SaitRol } from '@Entity/Sait_Rol/Sait_rol'
+import { Users } from '@Entity/Users/users'
 
 @Entity('Saits')
 export class Saits extends BaseEntity {
   @PrimaryGeneratedColumn()
     idSaits!: string
 
+  @Index()
   @Column({ type: 'varchar' })
     nameSait!: string
+
+  @Column({ type: 'varchar' })
+    city!: string
 
   @Column({ type: 'varchar' })
     address!: string
@@ -18,6 +24,9 @@ export class Saits extends BaseEntity {
 
   @ManyToOne(() => Users, (user: Users) => user.saits)
     company!: Users
+
+  @OneToMany(() => SaitRol, (saitRol: SaitRol) => saitRol.saits)
+    rolNecesary!: SaitRol
 
   // Una sede tiene muchos empleados
   @OneToMany(() => Employes, (employes: Employes) => employes.saits)

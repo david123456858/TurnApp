@@ -8,6 +8,8 @@ import { DataBase } from '@framework/db/db'
 import { routerAuth } from '@routes/Auth/auth'
 import { routeUser } from '@routes/users/userRoute'
 import { routeRoles } from '@routes/Role/role'
+import { baseRoute, PREFIX_ROUTE } from '@adapters/config/routerConfig'
+import { routeSaits } from '@routes/saits/saits'
 
 config()
 
@@ -31,18 +33,19 @@ async function StarBd () {
 
 void StarBd()
 
-app.use(express.json())
+app.use(express.json({ limit: '50mb' }))
 app.use(morgan('dev'))
 
 // part the routes
-app.use(routerAuth())
-app.use(routeUser())
-app.use(routeRoles())
+app.use(baseRoute, routerAuth(PREFIX_ROUTE.AUTH))
+app.use(baseRoute, routeUser(PREFIX_ROUTE.USERS))
+app.use(baseRoute, routeRoles(PREFIX_ROUTE.ROLES))
+app.use(baseRoute, routeSaits(PREFIX_ROUTE.SAITS))
 
 app.disable('x-powered-by')
 
 app.get('/ping', (req: Request, res: Response) => {
-  res.send('pong')
+  res.json({ message: 'pong' })
 })
 
 app.listen(port, () => {

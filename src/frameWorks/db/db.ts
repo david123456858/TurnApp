@@ -9,25 +9,28 @@ import { Saits } from '@Entity/Sait/saits'
 import { Schedules } from '@Entity/Schedules/schedules'
 import { Roles } from '@Entity/Role/roles'
 import { Employes } from '@Entity/Employes/employes'
+import { SaitRol } from '@Entity/Sait_Rol/Sait_rol'
 
 config()
 
 // Estudiar el patron de diseño singleton
+
+// ❌ Mala ubicacion de la configuracion de la base de datos revisar
 export class DataBase {
   private static _intance: DataBase
 
   private readonly appDataSource: DataSource
 
   constructor () {
-    const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env // destrucuracion buen detalle
+    const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, PORTBS } = process.env // destrucuracion buen detalle
     this.appDataSource = new DataSource({
       type: 'postgres',
       host: PGHOST,
-      port: 5432 /* Investigar sobre como colocar una variable de entorno como numero */,
+      port: parseInt(PORTBS as string),
       password: PGPASSWORD,
       database: PGDATABASE,
       username: PGUSER,
-      entities: [Users, Roles, Saits, Schedules, Employes],
+      entities: [Users, Roles, Saits, Schedules, Employes, SaitRol],
       synchronize: true,
       logging: true,
       ssl: { rejectUnauthorized: false }
