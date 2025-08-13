@@ -7,23 +7,24 @@ export class RepositorySaits implements IcrudRepository<Saits> {
     await Saits.save(data)
   }
 
-  async update (data: Saits): Promise<Saits | Error> {
-    await Saits.findOneBy({ idSaits: data.idSaits })
-    const saitUpdate = await Saits.save(data)
-    return saitUpdate
+  async update (data: Saits): Promise<any> {
+    const { idSaits, ...sait } = data
+    return await Saits.update({ idSaits }, sait)
   }
 
-  async delete (id: string): Promise<Saits | Error> {
-    return new Saits()
+  async delete (id: string): Promise<any> {
+    return await Saits.delete({ idSaits: id })
   }
 
   async findById (id: string): Promise<Saits | Error | null> {
-    const saitSearch = await Saits.findOne({ where: { idSaits: id }, relations: {} })
-    return saitSearch
+    return await Saits.findOne({ where: { idSaits: id }, relations: {} })
   }
 
   async findAll (): Promise<Saits[]> {
-    const saits = await Saits.find()
-    return saits
+    return await Saits.find()
+  }
+
+  async findByName (name: string): Promise<Saits | null> {
+    return await Saits.findOne({ where: { nameSait: name } })
   }
 }

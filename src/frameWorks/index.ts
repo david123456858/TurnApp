@@ -45,7 +45,7 @@ app.use(baseRoute, routeSaits(PREFIX_ROUTE.SAITS))
 app.disable('x-powered-by')
 
 app.get('/ping', (req: Request, res: Response) => {
-  res.send('pong')
+  res.json({ message: 'pong' })
 })
 
 app.listen(port, () => {

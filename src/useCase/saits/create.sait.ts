@@ -1,16 +1,59 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/no-for-in-array */
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { IFailureProcess, ISuccessProcess } from '@adapters/interface/results/restults'
 import { FailureProccess, SuccessProcess } from '@adapters/utils/result/resultApi'
-import { saitCreatedDto } from '@Dtos/saits/saits'
+import { createSaitDto } from '@Dtos/saits/createDto'
+import { Saits } from '@Entity/Sait/saits'
+import { SaitRol } from '@Entity/Sait_Rol/Sait_rol'
+import { repositoryRules } from '@repository/rule/repository.rule'
+import { RepositorySaitRole } from '@repository/sait-role/sait-role'
 import { RepositorySaits } from '@repository/saits/repository.saits'
+import { repositoryUser } from '@repository/user/repository.user'
 
 export class CaseUseCreateSait {
   private readonly repository: RepositorySaits
-  constructor (repository: RepositorySaits) {
+  private readonly repositoryUser: repositoryUser
+  private readonly repositorySaitRole: RepositorySaitRole
+  private readonly repositoryRole: repositoryRules
+
+  constructor (repository: RepositorySaits, repositoryUser: repositoryUser) {
     this.repository = repository
+    this.repositoryUser = repositoryUser
+    this.repositorySaitRole = new RepositorySaitRole() // esto es algo provicional
+    this.repositoryRole = new repositoryRules()
   }
 
-  async createSait (sait: saitCreatedDto): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
+  async createSait (sait: createSaitDto): Promise<IFailureProcess<any> | ISuccessProcess<any>> {
     try {
+      const userFind = await this.repositoryUser.findByEmail(sait.company)
+
+      if (!userFind) return FailureProccess('Not found', 404)
+
+      const instanceOfSait = new Saits()
+
+      instanceOfSait.company = userFind
+      instanceOfSait.address = sait.address
+      instanceOfSait.city = sait.city
+      instanceOfSait.nameSait = sait.nameSait
+      instanceOfSait.numberEmployesForDay = sait.numberEmployesForDay
+
+      await this.repository.save(instanceOfSait)
+
+      const saitsSaved = await this.repository.findByName(sait.nameSait)
+      if (!saitsSaved) return FailureProccess('not found', 404)
+
+      console.time('busqueda')
+      for (const value of sait.rols) {
+        const result = await this.repositoryRole.findById(value.rolId)
+        const saitRolInstance = new SaitRol()
+        saitRolInstance.rol = result
+        saitRolInstance.saits = saitsSaved
+        saitRolInstance.numberRolNecessary = value.amount
+        await this.repositorySaitRole.save(saitRolInstance)
+      }
+      console.timeEnd('busqueda')
+
       return SuccessProcess('Site created successfully', 201)
     } catch (error) {
       return FailureProccess('Error creating site', 500)

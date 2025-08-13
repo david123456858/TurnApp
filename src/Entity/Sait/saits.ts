@@ -25,7 +25,7 @@ export class Saits extends BaseEntity {
   @ManyToOne(() => Users, (user: Users) => user.saits)
     company!: Users
 
-  @ManyToOne(() => SaitRol, (saitRol: SaitRol) => saitRol.saits)
+  @OneToMany(() => SaitRol, (saitRol: SaitRol) => saitRol.saits)
     rolNecesary!: SaitRol
 
   // Una sede tiene muchos empleados
