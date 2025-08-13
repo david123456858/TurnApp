@@ -18,9 +18,9 @@ export class CaseUseUpdateSaits {
 
   async updateSaits (dto: string): Promise<IFailureProcess<any> | ISuccessProcess<any> > {
     try {
-      return SuccessProcess('', 200)
+      return SuccessProcess('saits updated', 200)
     } catch (error) {
-      return FailureProccess('', 500)
+      return FailureProccess('Error internal server', 500)
     }
   }
 }
