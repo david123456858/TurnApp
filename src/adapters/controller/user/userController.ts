@@ -10,7 +10,12 @@ export class controllerUserCrud {
   caseUseFindUser: CaseUseFindUsers
   caseUseDeleted: CaseUseDeleteUser
 
-  constructor (caseUseDelete: CaseUseDeleteUser, caseUseUpdate: CaseUseUpdateUser, caseUseFindUser: CaseUseFindUsers, caseUseFindByEmail: caseUseFindByEmail) {
+  constructor (
+    caseUseDelete: CaseUseDeleteUser,
+    caseUseUpdate: CaseUseUpdateUser,
+    caseUseFindUser: CaseUseFindUsers,
+    caseUseFindByEmail: caseUseFindByEmail
+  ) {
     this.caseUseUser = caseUseFindByEmail
     this.caseUseUserUpdate = caseUseUpdate
     this.caseUseFindUser = caseUseFindUser

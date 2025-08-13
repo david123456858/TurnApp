@@ -12,6 +12,7 @@ export class ControllerSaits {
   private readonly caseUseFindByIdSait: CaseUseFindById
   private readonly caseUseUpdateSait: CaseUseUpdateSaits
 
+  /// TOTALMENTE REVISRA ALGUN PATRON DE DISEÑO QUE NOS PERMITAN MINIMIZAR TODO ESTE CODIGO
   constructor (
     caseUseCreate: CaseUseCreateSait,
     caseUseFind: CaseUseFindSaits,
