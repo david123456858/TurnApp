@@ -23,7 +23,7 @@ export class createSaitDto {
     company!: string
 
   @IsArray()
-  @ValidateNested({ each: true })
+  @ValidateNested({ each: true }) // le dice que necesita validar un algo que es array pero tambien se le puede pasar una entidad como CountRolesDto
   @Type(() => CountRolesDto)
     rols!: CountRolesDto[] // me permite por dentro de el array que venga lo que estoy pidiendo
 }
